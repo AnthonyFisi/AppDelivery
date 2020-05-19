@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/subCategoriaEmpresaFragment"
+    android:id="@+id/mynavgraph_sub"
+    tools:ignore="UnusedNavigation"
+    >
+    <fragment
+        android:id="@+id/subCategoriaEmpresaFragment"
+        android:name="com.example.yego.View.SubCategoriaEmpresaUI.FragmentSubCategoria"
+        android:label="fragment_subcategoria"
+        tools:layout="@layout/fragment_sub_categoria"
+        >
+
+    </fragment>
+
+</navigation>
