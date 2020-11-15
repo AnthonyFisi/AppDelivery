@@ -1,0 +1,14 @@
+# AppDelivery
+
+This app was build in android studio with java.
+
+
+## Picture
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/yegoo-a857b.appspot.com/o/Screenshot_20201114_171459%20(1).jpg?alt=media&token=a79a382a-fb8b-41b8-b972-2e88dfa55592) | ![alt text](https://firebasestorage.googleapis.com/v0/b/yegoo-a857b.appspot.com/o/Screenshot_20201114_171626.jpg?alt=media&token=9ea501ca-1649-452f-aee9-b0b93677f3bc) 
+![alt text](https://firebasestorage.googleapis.com/v0/b/yegoo-a857b.appspot.com/o/Screenshot_20201114_171634.jpg?alt=media&token=42468b29-5c75-481c-a758-e17d574a69c0)
+
+## Video
+
+## Details 
+
