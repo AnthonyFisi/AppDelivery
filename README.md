@@ -10,5 +10,27 @@ This app was build in android studio with java.
 
 ## Video
 
+Please gift me a like !!!
+
+- https://www.youtube.com/watch?v=_DiA6-p0ntE
+
 ## Details 
+
+- Login
+- Home 
+- Register gps location
+- Store categories
+- Store subcategories
+- Detail store
+- Shopping cart
+- Checkout
+- Order
+- Perfil User
+
+## Contacts
+
+### Facebook 
+- https://www.facebook.com/profile.php?id=100007226775152
+
+
 
