@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@drawable/border_general_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/button_cancelar_comentario"
+                android:layout_width="25dp"
+                android:layout_height="25dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_action_name_back" />
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearlayout_change_phone"
+            android:visibility="visible"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/titulo_dialogframent"
+                android:text="Cambiar numero"
+                android:layout_marginTop="16dp"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginStart="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/textInputFirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="top"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:cursorVisible="true"
+                    android:textCursorDrawable="@color/mainColor"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:hint="Ingresar un numero adicional"
+                    android:inputType="textAutoComplete"
+                    android:imeOptions="actionDone"
+                    android:padding="15dp"
+                    android:backgroundTint="@color/mainColor"
+                    android:scrollbarStyle="insideInset"
+                    android:scrollbars="vertical" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/button_agregar_comentario"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_weight="6"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    app:cardCornerRadius="24dp"
+                    android:elevation="0dp"
+                    android:layout_gravity="center"
+                    app:cardBackgroundColor="@color/original_color">
+
+                    <ImageView
+                        android:background="@drawable/ic_action_play"
+                        android:backgroundTint="@color/white"
+                        android:layout_gravity="center"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"/>
+
+
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearlayout_ok"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+            <ImageView
+                android:background="@drawable/check"
+                android:backgroundTint="@color/green"
+                android:layout_width="80dp"
+                android:layout_height="80dp"/>
+            <TextView
+                android:text="Cambio exitoso"
+                android:layout_marginTop="8dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/textView_phone_number"
+                android:text="999 999 999"
+                android:textSize="20sp"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="numero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linearlayout_loading"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+            <ProgressBar
+                android:indeterminateTint="@color/mainColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

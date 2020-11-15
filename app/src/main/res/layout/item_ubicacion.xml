@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    android:layout_marginBottom="4dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="2dp"
+    android:layout_marginStart="2dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+
+    <LinearLayout
+        android:id="@+id/linearlayout_change_ubicacion"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/texto_ubicacion_NOMBRE"
+                style="@style/Titulo3"
+                android:drawableStart="@drawable/ic_action_name_location3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/detalles"
+                style="@style/Titulo3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Detalles"
+                android:textStyle="bold"
+
+                android:visibility="gone"
+                android:layout_marginStart="32dp"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/id_detalles_ubicacion"
+                style="@style/Titulo3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Detalles"
+                android:layout_marginStart="32dp"
+
+                android:visibility="gone" />
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="end"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/eliminar_ubicacion"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="4dp"
+                android:backgroundTint="@color/titulo"
+                android:background="@drawable/ic_action_garbage"
+                android:scaleType="fitXY" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>
+

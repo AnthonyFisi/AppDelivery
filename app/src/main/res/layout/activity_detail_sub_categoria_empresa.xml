@@ -1,61 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/white"
     tools:context=".View.DetailSubCategoriaEmpresaActivity">
 
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_3_sub"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintBottom_toTopOf="@+id/nestedScrollView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_action_name_back"
+        app:titleTextColor="@color/transparente"
+        app:menu="@menu/menu_subcategoria">
+
+        <TextView
+            android:id="@+id/ubicacion_enable"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </androidx.appcompat.widget.Toolbar>
 
 
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_3_sub">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="45dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="45dp"
-                android:orientation="vertical">
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp">
 
-
-
-                <androidx.fragment.app.FragmentContainerView
-                    android:id="@+id/fragment_sub_categoria_cerca_detail"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/nombre_subcategoria"
+                    style="@style/Titulo4"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:name="com.example.yego.View.DetailSubCategoriaEmpresaUI.FragmentSubUbicacionCerca"
-                    tools:ignore="MissingConstraints">
+                    android:text="Nombre de SubCategoria"
+                    android:textSize="24sp"
+                    tools:ignore="SmallSp" />
 
-                </androidx.fragment.app.FragmentContainerView>
-
-
-
-
-
-                <androidx.fragment.app.FragmentContainerView
-                    android:id="@+id/fragmen_total_subEmpresa"
+                <LinearLayout
+                    android:gravity="end"
+                    android:visibility="gone"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:name="com.example.yego.View.DetailSubCategoriaEmpresaUI.FragmentEmpresaSubCategoria">
+                    android:layout_height="match_parent">
 
-                </androidx.fragment.app.FragmentContainerView>
 
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:src="@drawable/ic_action_filter"
+                            android:layout_marginEnd="5dp"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"/>
+                        <TextView
+                            android:gravity="center"
+                            android:text="Filtros"
+                            style="@style/Titulo4"
+                            android:textSize="18sp"
+                            android:textColor="@color/original_color"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
             </LinearLayout>
 
 
-        </androidx.core.widget.NestedScrollView>
+
+            <fragment
+                android:id="@+id/fragment_publicidad"
+                android:name="com.example.yego.View.SubCategoriaEmpresaUI.FragmentPublicidad"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                tools:ignore="FragmentTagUsage"
+                tools:layout="@layout/fragment_publicidad" />
+
+            <LinearLayout
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Cerca a mi"
+                    android:textSize="24sp"
+                    style="@style/Titulo4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:ignore="SmallSp" />
+            </LinearLayout>
+
+            <fragment
+                android:id="@+id/fragment_sub_categoria_cerca_detail"
+                android:name="com.example.yego.View.DetailSubCategoriaEmpresaUI.FragmentSubUbicacionCerca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="8dp"
+                tools:ignore="MissingConstraints"
+                tools:layout="@layout/fragment_sub_ubicacion_cerca"/>
 
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+            <LinearLayout
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Recomendados"
+                    android:textSize="24sp"
+                    style="@style/Titulo4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:ignore="SmallSp" />
+            </LinearLayout>
+            <fragment
+                android:id="@+id/fragmen_total_subEmpresa"
+                android:name="com.example.yego.View.DetailSubCategoriaEmpresaUI.FragmentEmpresaSubCategoria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                tools:layout="@layout/fragment_empresa_total_sub_categoria"/>
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
 
 
 
 
-</RelativeLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

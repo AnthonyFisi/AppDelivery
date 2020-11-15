@@ -17,6 +17,8 @@ public class Publicidad {
     @Expose
     private String url_imagen_publicidad;
 
+
+
     public int getIdpublicidad() {
         return idpublicidad;
     }

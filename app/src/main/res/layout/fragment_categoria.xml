@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
     xmlns:shimmer="http://schemas.android.com/apk/res-auto"
     tools:context=".View.HomeUI.FragmentCategoria"
     android:orientation="vertical">
@@ -11,7 +13,7 @@
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmer_view_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
         android:orientation="vertical"
         shimmer:duration="800">
@@ -19,30 +21,13 @@
         <!-- Adding 7 rows of placeholders -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <include layout="@layout/data_placeholder_layout" />
-                <include layout="@layout/data_placeholder_layout" />
-                <include layout="@layout/data_placeholder_layout" />
-                <include layout="@layout/data_placeholder_layout" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <include layout="@layout/data_placeholder_layout" />
-                <include layout="@layout/data_placeholder_layout" />
-                <include layout="@layout/data_placeholder_layout" />
-                <include layout="@layout/data_placeholder_layout" />
-
-            </LinearLayout>
-
+            <include layout="@layout/data_placeholder_layout" />
+            <include layout="@layout/data_placeholder_layout" />
+            <include layout="@layout/data_placeholder_layout" />
+            <include layout="@layout/data_placeholder_layout" />
 
         </LinearLayout>
 
@@ -57,8 +42,8 @@
             android:id="@+id/recycler_view_categoria"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="vertical"></androidx.recyclerview.widget.RecyclerView>
+            android:scrollbars="horizontal"/>
 
     </LinearLayout>
 
-</LinearLayout>
+</FrameLayout>

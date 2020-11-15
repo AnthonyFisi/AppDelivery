@@ -3,7 +3,9 @@ package com.example.yego.Repository.Modelo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class SubCategoriaEmpresa {
+import java.io.Serializable;
+
+public class SubCategoriaEmpresa implements Serializable {
 
     @SerializedName("idsubcategoriaempresa")
     @Expose

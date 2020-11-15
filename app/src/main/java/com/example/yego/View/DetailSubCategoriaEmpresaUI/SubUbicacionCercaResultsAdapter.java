@@ -20,7 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class SubUbicacionCercaResultsAdapter extends RecyclerView.Adapter<SubUbicacionCercaResultsAdapter.SubUbicacionCercaResultsHolder> {
 
 
-    List<Empresa> results= new ArrayList<>();
+    private List<Empresa> results= new ArrayList<>();
     private OneNoteListener onNoteListener;
 
     @NonNull
@@ -42,10 +42,17 @@ public class SubUbicacionCercaResultsAdapter extends RecyclerView.Adapter<SubUbi
 
             Glide.with(holder.itemView)
                     .load(imageUrl)
+                    .skipMemoryCache(true)
                     .into(holder.mImageView);
         }
 
-        holder.mTextView.setText(empresa.getNombre_empresa());
+        holder.item_subcategoria_cerca_NOMBRE_EMPRESA.setText(empresa.getNombre_empresa());
+        holder.item_subcategoria_cerca_TIEMPO_APROXIMADO.setText(empresa.getTiempo_aproximado_entrega());
+        String precio="S/."+empresa.getCosto_delivery();
+
+        holder.item_subcategoria_cerca_PRECIO_DELIVERY.setText(precio);
+
+
     }
 
     @Override
@@ -54,24 +61,30 @@ public class SubUbicacionCercaResultsAdapter extends RecyclerView.Adapter<SubUbi
     }
 
 
-    public void setSubUbicacionCercaAdpater(List<Empresa> results/*,OneNoteListener oneNoteListener*/){
+    void setSubUbicacionCercaAdpater(List<Empresa> results, OneNoteListener oneNoteListener){
         this.results=results;
         notifyDataSetChanged();
-       // this.onNoteListener=oneNoteListener;
+        this.onNoteListener=oneNoteListener;
+
     }
 
     public class SubUbicacionCercaResultsHolder  extends RecyclerView.ViewHolder implements  View.OnClickListener{
 
 
         ImageView mImageView;
-        TextView mTextView;
+        TextView item_subcategoria_cerca_NOMBRE_EMPRESA,item_subcategoria_cerca_TIEMPO_APROXIMADO,item_subcategoria_cerca_PRECIO_DELIVERY;
+
         OneNoteListener oneNoteListener;
-        public SubUbicacionCercaResultsHolder(@NonNull View itemView,OneNoteListener oneNoteListener) {
+        SubUbicacionCercaResultsHolder(@NonNull View itemView, OneNoteListener oneNoteListener) {
             super(itemView);
             mImageView =itemView.findViewById(R.id.imageView_sub_categoria_ubicacion);
-            mTextView =itemView.findViewById(R.id.textView_nombre_sub_categoria_ubicacion);
+            item_subcategoria_cerca_NOMBRE_EMPRESA=itemView.findViewById(R.id.item_subcategoria_cerca_NOMBRE_EMPRESA);
+            item_subcategoria_cerca_TIEMPO_APROXIMADO=itemView.findViewById(R.id.item_subcategoria_cerca_TIEMPO_APROXIMADO);
+            item_subcategoria_cerca_PRECIO_DELIVERY=itemView.findViewById(R.id.item_subcategoria_cerca_PRECIO_DELIVERY);
+
+
             this.oneNoteListener=oneNoteListener;
-            itemView.setOnClickListener(this);
+            mImageView.setOnClickListener(this);
         }
 
         @Override

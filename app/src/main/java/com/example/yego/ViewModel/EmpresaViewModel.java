@@ -2,80 +2,79 @@ package com.example.yego.ViewModel;
 
 import android.app.Application;
 
+import com.example.yego.Login.SessionPrefs;
+import com.example.yego.Repository.Modelo.Empresa;
 import com.example.yego.Repository.Modelo.Gson.GsonEmpresa;
 import com.example.yego.Repository.Repositorio.EmpresaRepository;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 
 public class EmpresaViewModel extends AndroidViewModel {
 
     private EmpresaRepository  empresaRepository;
+
     private LiveData<GsonEmpresa>  gsonEmpresaLiveData;
+
+    private LiveData<Empresa> mEmpresaLiveData;
 
     public EmpresaViewModel(@NonNull Application application) {
         super(application);
     }
 
+    private String token;
 
     public void init() {
+        token= SessionPrefs.get(getApplication()).getTokenPrefs();
         empresaRepository = new EmpresaRepository();
+        mEmpresaLiveData=empresaRepository.getEmpresaMutableLivedata();
         gsonEmpresaLiveData = empresaRepository.getListafindByLocationLiveData();
     }
 
     public void searchListafindByLocation(int idCategoria,String Ubicacion) {
-        empresaRepository.searchListafindByLocation(idCategoria,Ubicacion);
-    }
 
-    public LiveData<GsonEmpresa> getListafindByLocationLiveData() {
-        return gsonEmpresaLiveData;
+        empresaRepository.searchListafindByLocation(token,idCategoria,Ubicacion);
     }
 
 
-
-
-    public void init1() {
-        empresaRepository = new EmpresaRepository();
-        gsonEmpresaLiveData = empresaRepository.getListaSortfindByLiveData();
-    }
-
-    public void searchListaSortfindBy(int idCategoria) {
-        empresaRepository.searchListaSortfindBy(idCategoria);
-    }
-
-    public LiveData<GsonEmpresa> getListaSortfindByLiveData() {
-        return gsonEmpresaLiveData;
-    }
-
-
-
-    public void init2() {
-        empresaRepository = new EmpresaRepository();
-        gsonEmpresaLiveData = empresaRepository.getListafindByLocationSubCategoriaLiveData();
+    public void searchListaCategoriaComplementaria(int idCategoria,String ubicacion) {
+        empresaRepository.searchListaCategoriaComplementaria(token,idCategoria,ubicacion);
     }
 
     public void searchListafindByLocationSubCategoria( int idSubCategoria,String Ubicacion){
-        empresaRepository.searchListafindByLocationSubCategoria(idSubCategoria,Ubicacion);
+        empresaRepository.searchListafindByLocationSubCategoria(token,idSubCategoria,Ubicacion);
     }
 
-    public LiveData<GsonEmpresa> getListafindByLocationSubCategoriaLiveData() {
+
+    public void searchListaSubcategoriaComplementaria( int idSubCategoria,String ubicacion){
+        empresaRepository.searchListaSubcategoriaComplementaria(token,idSubCategoria,ubicacion);
+    }
+
+    public void searchListaTotalcerca(String ubicacion){
+        empresaRepository.searchListaTotalcerca(token,ubicacion);
+    }
+
+    public void listaEmpresaFavorita( int idusuario){
+        empresaRepository.listaEmpresaFavorita(token,idusuario);
+    }
+
+    public void filtroEmpresa(  int idcategoriaempresa, int distancia, float preciodelivery,String ubicacion){
+        empresaRepository.filtroEmpresa(token, idcategoriaempresa, distancia, preciodelivery, ubicacion);
+    }
+
+
+    public void getEmpresaById( int idempresa){
+        empresaRepository.getEmpresaById(token,idempresa);
+    }
+
+    public LiveData<Empresa> getEmpresaLiveData(){
+        return mEmpresaLiveData;
+    }
+
+    public LiveData<GsonEmpresa> getListaEmpresanLiveData() {
         return gsonEmpresaLiveData;
     }
 
 
-
-    public void init3() {
-        empresaRepository = new EmpresaRepository();
-        gsonEmpresaLiveData = empresaRepository.getListafindByLiveData();
-    }
-
-    public void searchListafindBy( int idSubCategoria){
-        empresaRepository.searchListafindBy(idSubCategoria);
-    }
-
-    public LiveData<GsonEmpresa> getsearchListafindByLiveData() {
-        return gsonEmpresaLiveData;
-    }
 }

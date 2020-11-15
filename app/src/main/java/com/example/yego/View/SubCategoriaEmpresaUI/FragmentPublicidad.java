@@ -8,6 +8,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,8 +27,16 @@ import com.smarteist.autoimageslider.SliderView;
  */
 public class FragmentPublicidad extends Fragment {
 
+    /*
+    *
+    *     implementation 'com.github.smarteist:autoimageslider:1.3.7-appcompat'
+
+     *
+    * */
+
+
     private PublicidadViewModel viewModel;
-    PublicidadResultsAdapter adapter;
+    private PublicidadResultsAdapter adapter;
 
     public FragmentPublicidad() {
         // Required empty public constructor
@@ -68,7 +78,15 @@ public class FragmentPublicidad extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_publicidad, container, false);
         viewModel.searchListaPublicidad();
-        SliderView sliderView = view.findViewById(R.id.imageSlider);
+
+        /*RecyclerView recyclerView=view.findViewById(R.id.imageSlider);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        recyclerView.setAdapter(adapter);*/
+
+       SliderView sliderView = view.findViewById(R.id.imageSlider);
+
+
         sliderView.setSliderAdapter(adapter);
         sliderView.setIndicatorAnimation(IndicatorAnimations.WORM); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
         sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
@@ -77,6 +95,7 @@ public class FragmentPublicidad extends Fragment {
         sliderView.setIndicatorUnselectedColor(Color.GRAY);
         sliderView.setScrollTimeInSec(4); //set scroll delay in seconds :
         sliderView.startAutoCycle();
+
         return view;
     }
 

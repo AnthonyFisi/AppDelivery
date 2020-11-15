@@ -1,65 +1,238 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@android:color/white"
     tools:context=".View.SubCategoriaEmpresaActivity">
 
-   <androidx.coordinatorlayout.widget.CoordinatorLayout
-       android:layout_width="match_parent"
-       android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_2"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/nestedScrollView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_action_name_back"
+        app:titleTextColor="@color/transparente"
+        app:menu="@menu/menu_subcategoria">
+        <TextView
+            android:id="@+id/ubicacion_enable"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_2">
 
 
-      <androidx.core.widget.NestedScrollView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content">
-         <LinearLayout
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             tools:ignore="MissingConstraints"
-             tools:layout_editor_absoluteX="16dp"
-             tools:layout_editor_absoluteY="45dp"
-             android:orientation="vertical">
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp">
+
+                <TextView
+                    android:id="@+id/nombre_categoria"
+                    style="@style/Titulo4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre de Categoria"
+                    android:textSize="24sp"
+                    tools:ignore="SmallSp" />
+
+                <LinearLayout
+                    android:gravity="end"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <LinearLayout
+                        android:gravity="center"
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:src="@drawable/ic_action_filter"
+                            android:layout_marginEnd="5dp"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"/>
+                        <TextView
+                            android:gravity="center"
+                            android:text="Filtros"
+                            style="@style/Titulo4"
+                            android:textSize="18sp"
+                            android:textColor="@color/original_color"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+<!--
+            <LinearLayout
+                android:id="@+id/home_SEARCH"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rounded_searchview_oficial"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints">
+
+
+                <TextView
+                    android:id="@+id/buscador_categoria"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="20dp"
+                    android:gravity="center"
+                    android:text="¿Que estas buscando? "
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="20dp"
+                    android:gravity="end">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/logomimi" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp">
+
+                <TextView
+                    style="@style/Titulo4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Categoria"
+                    android:textSize="16sp"
+                    tools:ignore="SmallSp" />
+            </LinearLayout>
+
+
+            -->
 
             <fragment
-                android:tag="@string/app_name"
                 android:id="@+id/fragment_sub_categoria"
                 android:name="com.example.yego.View.SubCategoriaEmpresaUI.FragmentSubCategoria"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:tag="@string/app_name"
                 tools:ignore="FragmentTagUsage,MissingConstraints"
                 tools:layout="@layout/fragment_sub_categoria" />
+
+
+            <fragment
+                android:id="@+id/fragment_publicidad"
+                android:name="com.example.yego.View.SubCategoriaEmpresaUI.FragmentPublicidad"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                tools:layout="@layout/fragment_publicidad" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp">
+
+                <TextView
+                    style="@style/Titulo4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cerca a mi"
+                    android:textSize="24sp" />
+            </LinearLayout>
 
             <fragment
                 android:id="@+id/fragment_ubicacion_cerca"
                 android:name="com.example.yego.View.SubCategoriaEmpresaUI.FragmentUbicacionCerca"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
                 tools:ignore="FragmentTagUsage,MissingConstraints"
                 tools:layout="@layout/fragment_ubicacion_cerca" />
 
-            <fragment
-                android:id="@+id/fragment_publicidad"
-                android:name="com.example.yego.View.SubCategoriaEmpresaUI.FragmentPublicidad"
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:ignore="FragmentTagUsage"
-                tools:layout="@layout/fragment_publicidad" />
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    style="@style/Titulo4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Recomendados"
+                    android:textSize="24sp"
+                    tools:ignore="SmallSp" />
+            </LinearLayout>
 
             <fragment
                 android:id="@+id/fragment_empresa_sort"
                 android:name="com.example.yego.View.SubCategoriaEmpresaUI.FragmentEmpresaSort"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="24dp"
                 tools:ignore="FragmentTagUsage"
                 tools:layout="@layout/fragment_empresa_sort" />
-         </LinearLayout>
+        </LinearLayout>
 
 
-      </androidx.core.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 
-   </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-</RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

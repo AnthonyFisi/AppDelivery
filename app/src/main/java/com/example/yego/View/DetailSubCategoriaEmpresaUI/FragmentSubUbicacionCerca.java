@@ -1,5 +1,6 @@
 package com.example.yego.View.DetailSubCategoriaEmpresaUI;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,16 +12,22 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.yego.R;
+import com.example.yego.Repository.Modelo.Empresa;
 import com.example.yego.Repository.Modelo.Gson.GsonEmpresa;
+import com.example.yego.Repository.Modelo.Ubicacion;
+import com.example.yego.View.EmpresaDetailActivity;
 import com.example.yego.ViewModel.EmpresaViewModel;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 
-public class FragmentSubUbicacionCerca extends Fragment {
+public class FragmentSubUbicacionCerca extends Fragment implements  SubUbicacionCercaResultsAdapter.OneNoteListener{
 
     private SubUbicacionCercaResultsAdapter adapter;
     private EmpresaViewModel viewModel;
+    private ShimmerFrameLayout mShimmerViewContainer;
 
 
 
@@ -36,12 +43,14 @@ public class FragmentSubUbicacionCerca extends Fragment {
         super.onCreate(savedInstanceState);
         adapter=new SubUbicacionCercaResultsAdapter();
         viewModel = ViewModelProviders.of(this).get(EmpresaViewModel.class);
-        viewModel.init2();
-        viewModel.getListafindByLocationSubCategoriaLiveData().observe(this, new Observer<GsonEmpresa>() {
+        viewModel.init();
+        viewModel.getListaEmpresanLiveData().observe(this, new Observer<GsonEmpresa>() {
             @Override
             public void onChanged(GsonEmpresa gsonCategoriaEmpresa) {
+                mShimmerViewContainer.stopShimmerAnimation();
+                mShimmerViewContainer.setVisibility(View.GONE);
                 if(gsonCategoriaEmpresa !=null){
-                    adapter.setSubUbicacionCercaAdpater(gsonCategoriaEmpresa.getListaEmpresa());
+                    adapter.setSubUbicacionCercaAdpater(gsonCategoriaEmpresa.getListaEmpresa(),FragmentSubUbicacionCerca.this::oneNoteClick);
                 }
             }
         });
@@ -56,15 +65,36 @@ public class FragmentSubUbicacionCerca extends Fragment {
 
         RecyclerView recyclerView=view.findViewById(R.id.ubicacion_sub_categoria_cerca_RecyclerView);
 
+        mShimmerViewContainer=view.findViewById(R.id.shimmer_view_container_ubicacion_cerca_2);
+        mShimmerViewContainer.startShimmerAnimation();
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setAdapter(adapter);
         return view;
     }
 
     public void setIdCategoria(int idSubCategoria){
-        viewModel.searchListafindByLocationSubCategoria(idSubCategoria,"Barranco");
+        String coordenada= Ubicacion.ubicacionEnable.getMaps_coordenada_x()+","+Ubicacion.ubicacionEnable.getMaps_coordenada_y();
+        viewModel.searchListafindByLocationSubCategoria(idSubCategoria,coordenada);
 
     }
 
 
+    @Override
+    public void oneNoteClick(Empresa empresa) {
+        Intent intent= EmpresaDetailActivity.newIntentEmpresa(getContext(),empresa);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mShimmerViewContainer.startShimmerAnimation();
+    }
+
+    @Override
+    public void onPause() {
+        mShimmerViewContainer.stopShimmerAnimation();
+        super.onPause();
+    }
 }

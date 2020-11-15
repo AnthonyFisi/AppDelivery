@@ -4,9 +4,10 @@ import com.example.yego.Repository.Modelo.Empresa;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class GsonEmpresa {
+public class GsonEmpresa implements Serializable {
 
     @SerializedName("listaEmpresa")
     @Expose

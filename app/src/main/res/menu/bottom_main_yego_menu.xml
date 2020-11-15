@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_inicio"
+        android:icon="@drawable/navegador2"
+        android:title="Inicio" />
+
+
+    <item
+        android:id="@+id/empresaFavoritoFragment"
+        android:icon="@drawable/favorit"
+        android:title="Favorito" />
+
+    <item
+        
+        android:id="@+id/fragmentListOrden"
+        android:icon="@drawable/boleto"
+        android:title="Pedido" />
+
+</menu>

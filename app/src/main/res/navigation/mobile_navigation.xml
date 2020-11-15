@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_inicio">
+
+    <fragment
+        android:id="@+id/nav_inicio"
+        android:name="com.example.yego.View.ui.home.HomeFragment"
+        android:label="@string/menu_inicio"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_actionBottomDialogFragment"
+            app:destination="@id/nav_ubicaciones" />
+        <action
+            android:id="@+id/action_nav_home_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_nav_inicio_to_fragmentListOrden"
+            app:destination="@id/fragmentListOrden" />
+
+        <argument android:name="cantidad"
+            app:argType="string"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_perfil"
+        android:name="com.example.yego.View.ui.Perfil.PerfilFragment"
+        android:label="@string/menu_perfil"
+        tools:layout="@layout/fragment_perfil" >
+        <argument android:name="codigo"
+            app:argType="string"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_ganar_dinero"
+        android:name="com.example.yego.View.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_ubicaciones"
+        tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_socio"
+        android:name="com.example.yego.View.ui.tools.ToolsFragment"
+        android:label="@string/menu_metodo_pago"
+        tools:layout="@layout/fragment_tools" />
+
+    <fragment
+        android:id="@+id/nav_soporte"
+        android:name="com.example.yego.View.ui.share.ShareFragment"
+        android:label="@string/menu_ganar_dinero"
+        tools:layout="@layout/fragment_share" />
+
+    <fragment
+        android:id="@+id/nav_cerrar_sesion"
+        android:name="com.example.yego.View.ui.send.SendFragment"
+        android:label="@string/menu_socio"
+        tools:layout="@layout/fragment_send" />
+    <fragment
+        android:id="@+id/nav_ubicaciones"
+        android:name="com.example.yego.Utils.ActionBottomDialogFragment"
+        android:label="bottom_sheet"
+        tools:layout="@layout/bottom_sheet" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.yego.View.SearchUI.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/fragmentListOrden"
+        android:name="com.example.yego.View.OrdenUI.FragmentListOrden"
+        android:label="fragment_list_orden"
+        tools:layout="@layout/fragment_list_orden" >
+        <action
+            android:id="@+id/action_fragmentListOrden_to_mesaFragment"
+            app:destination="@id/mesaFragment" />
+        <action
+            android:id="@+id/action_fragmentListOrden_to_detalleOrdenFragment"
+            app:destination="@id/detalleOrdenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSupervisarOrden"
+        android:name="com.example.yego.View.OrdenUI.SupervisarOrden.FragmentSupervisarOrden"
+        android:label="fragment_fragment_supervisar_orden"
+        tools:layout="@layout/fragment_fragment_supervisar_orden" >
+        <argument
+            android:name="orden"
+            app:argType="com.example.yego.Repository.Modelo.Gson.GsonOrden"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmarEntregaFragment"
+        android:name="com.example.yego.View.OrdenUI.DetallesUI.ConfirmarEntregaFragment"
+        android:label="fragment_confirmar_entrega"
+        tools:layout="@layout/fragment_confirmar_entrega" >
+        <action
+            android:id="@+id/action_confirmarEntregaFragment_to_nav_home"
+            app:destination="@id/nav_inicio" />
+        <argument
+            android:name="orden"
+            app:argType="com.example.yego.Repository.Modelo.Gson.GsonOrden"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleOrdenFragment"
+        android:name="com.example.yego.View.OrdenUI.DetallesUI.DetalleOrdenFragment"
+        android:label="fragment_detalle_orden"
+        tools:layout="@layout/fragment_detalle_orden" >
+        <action
+            android:id="@+id/action_detalleOrdenFragment_to_confirmarEntregaFragment"
+            app:destination="@id/confirmarEntregaFragment" />
+        <argument
+            android:name="orden"
+            app:argType="com.example.yego.Repository.Modelo.Gson.GsonOrden"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_detalleOrdenFragment_to_fragmentSupervisarOrden"
+            app:destination="@id/fragmentSupervisarOrden" />
+    </fragment>
+    <fragment
+        android:id="@+id/empresaFavoritoFragment"
+        android:name="com.example.yego.View.EmpresaFavoritoUI.EmpresaFavoritoFragment"
+        android:label="fragment_empresa_favorito"
+        tools:layout="@layout/fragment_empresa_favorito" />
+    <fragment
+        android:id="@+id/mesaFragment"
+        android:name="com.example.yego.View.OrdenUI.MesaFragment"
+        android:label="fragment_mesa"
+        tools:layout="@layout/fragment_mesa" />
+</navigation>

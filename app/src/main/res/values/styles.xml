@@ -1,20 +1,245 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="colorPrimary">@color/original_color</item>
+        <item name="colorPrimaryDark">@color/original_color</item>
+
+        <item name="colorAccent">@color/transparente</item>
+
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowTranslucentStatus">true</item>
+
+        <item name= "android:textViewStyle" >@style/NovaTextViewStyle </item>
+        <item name= "android:buttonStyle" >@style/NovaButtonStyle </item>
+
     </style>
 
+    <style name="AppThemeEmpresa" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="colorPrimary">@android:color/transparent</item>
+        <item name="colorPrimaryDark">@color/original_color</item>
+        <item name="colorAccent">@color/titulo</item>
+        <item name="colorControlNormal">@color/titulo</item>
+        <item name="colorControlActivated">@color/original_color</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowTranslucentStatus">true</item>
+
+
+        <item name= "android:textViewStyle" >@style/NovaTextViewStyle </item>
+        <item name= "android:buttonStyle" >@style/NovaButtonStyle </item>
+
+    </style>
+
+    <style name="AppThemeTransparent" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="colorPrimary">@color/original_color</item>
+        <item name="colorPrimaryDark">@color/original_color</item>
+        <item name="colorAccent">@color/original_color</item>
+
+        <item name="colorControlNormal">@android:color/transparent</item>
+        <item name="colorControlActivated">@color/original_color</item>
+
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowTranslucentStatus">true</item>
+
+        <item name= "android:textViewStyle" >@style/NovaTextViewStyle </item>
+        <item name= "android:buttonStyle" >@style/NovaButtonStyle </item>
+
+    </style>
+
+
+    <style name="AppTheme2.0" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/original_color</item>
+        <item name="colorPrimaryDark">@android:color/holo_blue_light</item>
+        <item name="colorAccent">@color/titulo</item>
+        <item name="colorControlNormal">@color/titulo</item>
+        <item name="colorControlActivated">@color/original_color</item>
+
+    </style>
+
+    <style name="TemaEmpresa">
+        <item name="colorPrimary">@color/quantum_yellowA700</item>
+        <item name="colorPrimaryDark">@color/quantum_yellowA700</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="colorControlNormal">@color/background</item>
+
+        <item name="colorControlActivated">@color/background</item>
+        <item name="android:textColor">@color/titulo</item>
+
+
+    </style>
+
+    <style name="ActionItem">
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:drawablePadding">@dimen/drawable_padding</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/normal_padding</item>
+    </style>
+
+    <style name="Tema" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@android:color/transparent</item>
+        <item name="colorPrimaryDark">@android:color/transparent</item>
+        <item name="colorAccent">@color/titulo</item>
+        <item name="colorOnPrimary">@color/quantum_yellowA700</item>
+        <item name="android:textColor">@color/titulo</item>
+        <item name="colorControlNormal">@color/places_autocomplete_list_background</item>
+
+        <item name="colorControlActivated">@color/places_autocomplete_list_background</item>
+
+    </style>
+
+
+    <style name="NavigationTab" parent="Widget.Design.TabLayout">
+        <item name="tabBackground">@color/quantum_white_text</item>
+        <item name="tabSelectedTextColor">@color/mainColor2</item>
+        <item name="tabIndicatorColor">@color/cardview_light_background</item>
+        <item name="tabTextAppearance">@style/NavigationTabTextAppeareance</item>
+    </style>
+
+    <style name="NavigationTabTextAppeareance" parent="TextAppearance.Design.Tab">
+        <item name="android:textColor">@color/mainColor2</item>
+        <item name="android:textSize">17dp</item>
+        <item name="android:font" tools:ignore="NewApi">@font/averia_sans_libre</item>
+    </style>
+
+    <style name="tab_text" parent="@android:style/TextAppearance.Widget.TabWidget">
+      <!--  <item name="android:fontFamily">@font/averia_sans_libre</item>-->
+        <item name="android:textSize">15dp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+
+    <style name="tab_text_2" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
+        <item name="android:fontFamily">@font/averia_sans_libre</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+
     <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="StyleTextUbicacion">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/titulo</item>
+        <item name="android:textColorHint">@color/places_autocomplete_separator</item>
+    </style>
+
+    <style name="StyleTextUbicacionHint">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#325A73</item>
+        <item name="android:textColorHint">@color/places_autocomplete_separator</item>
+    </style>
+
+    <style name="StyleSubTitleVenta">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#325A73</item>
+        <item name="android:fontFamily">@font/averia_sans_libre</item>
+    </style>
+
+    <style name="StyleTextVenta">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">#8C8C8C</item>
+        <item name="android:fontFamily">@font/averia_sans_libre</item>
+    </style>
+
+    <style name="SubtitleStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/hammersmith_one</item>
+    </style>
+
+    <style name="style_button_general_in">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:fontFamily">@font/hammersmith_one</item>
+    </style>
+
+    <style name="style_button_general_out">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#02b6fd</item>
+        <item name="android:fontFamily">@font/hammersmith_one</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Tema.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Tema.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Tema.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <!-- AQUI VAMOS A EMPEZAR A PONER LAS FUENTES OFICIALES-->
+
+    <style name="Titulo2">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/titulo</item>
+        <item name= "android:fontFamily" > @font/proxima_nova_alt_light </item>
+    </style>
+
+
+    <style name="Titulo3">
+        <item name="android:textColor">@color/titulo</item>
+        <item name="android:textSize">16sp</item>
+        <item name= "android:fontFamily" > @font/proxima_nova_alt_light </item>
+    </style>
+
+    <style name="Titulo4">
+        <item name="android:textColor">@color/titulo</item>
+        <item name= "android:fontFamily" > @font/proxima_nova_alt_bold </item>
+    </style>
+
+    <style name="SubtituloYego">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/titulo</item>
+        <item name= "android:fontFamily" > @font/proxima_nova_alt_light </item>
+    </style>
+
+    <style name="Subtitulo2Yego">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/titulo</item>
+        <item name= "android:fontFamily" > @font/proxima_nova_alt_light </item>
+    </style>
+
+
+    <style name="Titulo1_Carrito">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/titulo</item>
+        <item name= "android:fontFamily" > @font/proxima_nova_alt_bold </item>
+    </style>
+
+    <style name="Titulo2_Carrito">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/titulo</item>
+        <item name= "android:fontFamily" > @font/proxima_nova_alt_light </item>
+    </style>
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/background</item>
+        <item name="colorControlActivated">@color/quantum_yellow</item>
+    </style>
+
+
+    <style name= "NovaTextViewStyle" parent= "android:Widget.TextView" >
+        <item name= "android:fontFamily" > @font/proxima_nova_alt_light </item>
+        <item name="android:textColor">@color/titulo</item>
+    </style>
+    <style name= "NovaButtonStyle" parent= "android:Widget.Holo.Button" >
+        <item name= "android:fontFamily" > @font/proxima_nova_alt_light </item>
+    </style>
 
 </resources>

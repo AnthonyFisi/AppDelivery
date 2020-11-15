@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class EmpresaSubCategoriaResultsAdapter extends RecyclerView.Adapter<EmpresaSubCategoriaResultsAdapter.EmpresaSubCategoriaResultHolder> {
 
-    List<Empresa> results=new ArrayList<>();
+    private List<Empresa> results=new ArrayList<>();
     private OneNoteListener onNoteListener;
 
 
@@ -39,20 +39,28 @@ public class EmpresaSubCategoriaResultsAdapter extends RecyclerView.Adapter<Empr
 
             Glide.with(holder.itemView)
                     .load(imageUrl)
+                    .skipMemoryCache(true)
                     .into(holder.mImageView);
         }
 
         holder.mTextView.setText(empresa.getNombre_empresa());
+
+        holder.ubicacion_cerca.setText(empresa.getDireccion_empresa());
+        holder.item_empresa_subcatgoria_sort_TIEMPO_APROXIMADO.setText(empresa.getTiempo_aproximado_entrega());
+        String precio="S/."+empresa.getCosto_delivery();
+
+        holder.item_empresa_subcatgoria_sort_PRECIO_DELIVERY.setText(precio);
     }
 
     @Override
     public int getItemCount() {
         return results.size();
 
+
     }
 
 
-    public void setEmpresaSubCategoriaAdpater(List<Empresa> results,OneNoteListener oneNoteListener){
+    void setEmpresaSubCategoriaAdpater(List<Empresa> results, OneNoteListener oneNoteListener){
         this.results=results;
         notifyDataSetChanged();
          this.onNoteListener=oneNoteListener;
@@ -61,13 +69,20 @@ public class EmpresaSubCategoriaResultsAdapter extends RecyclerView.Adapter<Empr
     public class EmpresaSubCategoriaResultHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         ImageView mImageView;
-        TextView mTextView;
+        TextView mTextView,item_empresa_subcatgoria_sort_PRECIO_DELIVERY,item_empresa_subcatgoria_sort_TIEMPO_APROXIMADO;
+
+        TextView ubicacion_cerca;
+
+
         OneNoteListener oneNoteListener;
 
-        public EmpresaSubCategoriaResultHolder(@NonNull View itemView,OneNoteListener oneNoteListener) {
+        EmpresaSubCategoriaResultHolder(@NonNull View itemView, OneNoteListener oneNoteListener) {
             super(itemView);
             mImageView =itemView.findViewById(R.id.imageView_sub_empresa_total);
             mTextView =itemView.findViewById(R.id.textView_nombre_sub_empresa_total);
+            ubicacion_cerca=itemView.findViewById(R.id.textView_ubicacion_subcategoria_total);
+            item_empresa_subcatgoria_sort_PRECIO_DELIVERY=itemView.findViewById(R.id.item_empresa_subcatgoria_sort_PRECIO_DELIVERY);
+            item_empresa_subcatgoria_sort_TIEMPO_APROXIMADO=itemView.findViewById(R.id.item_empresa_subcategoria_sort_TIEMPO_APROXIMADO);
             this.oneNoteListener=oneNoteListener;
             itemView.setOnClickListener(this);
 

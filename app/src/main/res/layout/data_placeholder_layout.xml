@@ -1,44 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="100dp"
-    android:layout_height="100dp"
-    android:layout_marginTop="20dp"
-    android:layout_marginLeft="10dp"
-    >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_width="120dp"
+    android:layout_height="120dp">
 
-    <!-->
-
-     <View
-         android:layout_width="100dp"
-         android:layout_height="@dimen/placeholderTextHeight"
-         android:background="@color/background" />
-
-    <!-->
-
-    <LinearLayout
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/thumbnail"
-        android:layout_marginTop="@dimen/padding_10"
-        android:orientation="vertical"
-        tools:ignore="NotSibling">
-         <View
+    <View
         android:id="@+id/thumbnail"
-        android:layout_width="@dimen/placeholderImage"
-        android:layout_height="@dimen/placeholderImage"
-        android:layout_marginRight="@dimen/activityPadding"
-        android:layout_marginTop="@dimen/padding_10"
-        android:background="@color/background"
-        />
-
-        <View
-            android:layout_width="30dp"
-            android:layout_height="@dimen/placeholderTextHeight"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="15dp"
-            android:background="@color/background" />
-    </LinearLayout>
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/load_image_border"/>
 
 
-</RelativeLayout>
+</LinearLayout>

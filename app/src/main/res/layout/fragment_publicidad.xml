@@ -2,21 +2,21 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="140dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".View.SubCategoriaEmpresaUI.FragmentPublicidad">
 
     <androidx.cardview.widget.CardView
-        app:cardCornerRadius="6dp"
-        android:layout_margin="16dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="0dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
+
 
         <com.smarteist.autoimageslider.SliderView
             android:id="@+id/imageSlider"
-
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             app:sliderAnimationDuration="600"
             app:sliderAutoCycleDirection="back_and_forth"
             app:sliderAutoCycleEnabled="true"
@@ -26,11 +26,21 @@
             app:sliderIndicatorOrientation="horizontal"
             app:sliderIndicatorPadding="3dp"
             app:sliderIndicatorRadius="2dp"
-            app:sliderIndicatorSelectedColor="#5A5A5A"
             app:sliderIndicatorUnselectedColor="#FFF"
             app:sliderScrollTimeInSec="1"
             app:sliderStartAutoCycle="true" />
 
+     <!--   <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/imageSlider"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
+
+
+
+        -->
     </androidx.cardview.widget.CardView>
+
+
+
 
 </FrameLayout>

@@ -1,5 +1,8 @@
 package com.example.yego.View.HomeUI;
 
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,13 +17,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class CategoriaResultsAdapter  extends RecyclerView.Adapter<CategoriaResultsAdapter.CategoriaResultsHolder> {
 
-    List<CategoriaEmpresa> results =new ArrayList<>();
+    private List<CategoriaEmpresa> results =new ArrayList<>();
     private OnNoteListener onNoteListener;
-    int idCategoria=0;
 
     @NonNull
     @Override
@@ -34,7 +37,6 @@ public class CategoriaResultsAdapter  extends RecyclerView.Adapter<CategoriaResu
     public void onBindViewHolder(@NonNull CategoriaResultsHolder holder, int position) {
 
         CategoriaEmpresa categoriaEmpresa=results.get(position);
-        idCategoria=categoriaEmpresa.getIdCategoriaEmpresa();
 
         if (categoriaEmpresa.getUrl_imagen_categoria()!= null) {
             String imageUrl = categoriaEmpresa.getUrl_imagen_categoria()
@@ -42,6 +44,7 @@ public class CategoriaResultsAdapter  extends RecyclerView.Adapter<CategoriaResu
 
             Glide.with(holder.itemView)
                     .load(imageUrl)
+                    .skipMemoryCache(true)
                     .into(holder.smallThumbnailImageView);
         }
 
@@ -68,7 +71,7 @@ public class CategoriaResultsAdapter  extends RecyclerView.Adapter<CategoriaResu
         private TextView titleCategoria;
         OnNoteListener onNoteListener;
 
-        public CategoriaResultsHolder(@NonNull View itemView,OnNoteListener onNoteListener) {
+        CategoriaResultsHolder(@NonNull View itemView, OnNoteListener onNoteListener) {
             super(itemView);
             smallThumbnailImageView=itemView.findViewById(R.id.imagen_categoria);
             titleCategoria=itemView.findViewById(R.id.text_nombre_categoria);
@@ -87,4 +90,8 @@ public class CategoriaResultsAdapter  extends RecyclerView.Adapter<CategoriaResu
     public interface OnNoteListener{
         void onNoteClick(CategoriaEmpresa position);
     }
+
+
+
+
 }

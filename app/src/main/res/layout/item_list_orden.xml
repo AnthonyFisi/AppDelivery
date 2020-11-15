@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/color_background"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:id="@+id/fecha_historial"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/item_list_orden_DIA"
+            android:text="2 de julio del 2020"
+            style="@style/Titulo4"
+            android:gravity="bottom"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
+
+    </LinearLayout>
+
+
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/item_list_orden_NOMBRE_HORARIO"
+            android:text="4:00pm - 3:00am"
+            style="@style/Titulo3"
+            android:gravity="bottom"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:weightSum="6"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_weight="4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/item_list_orden_IMAGEN_EMPRESA"
+                    android:src="@drawable/restaurante"
+                    android:scaleType="fitXY"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginStart="8dp"
+            android:orientation="vertical"
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/item_list_orden_NOMBRE_EMPRESA"
+                android:text="Nombre de la empresa que tiene muchos locales"
+                style="@style/Titulo3"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/item_list_orden_NUMERO_ORDEN"
+                android:text="#12546"
+                android:textSize="16sp"
+                style="@style/Titulo4"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/item_list_orden_PRECIO_TOTAL"
+                android:gravity="center"
+                android:text="S/ 200.00"
+                style="@style/Titulo3"
+                android:visibility="gone"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:gravity="end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:id="@+id/item_list_orden_BUTTON_DETALLE"
+                        android:text="Ver"
+                        style="@style/Titulo4"
+                        android:background="@drawable/border_button_general"
+                        android:drawableEnd="@drawable/ic_action_detail"
+                        android:textColor="#FFFFFF"
+                        android:textAllCaps="false"
+                        android:layout_marginStart="16dp"
+                        android:padding="8dp"
+                        android:layout_width="70dp"
+                        android:layout_height="40dp"/>
+                </LinearLayout>
+
+
+                <Button
+                    android:id="@+id/item_list_orden_BUTTON_RECHAZADO"
+                    android:text="Detalles"
+                    style="@style/Titulo3"
+                    android:visibility="gone"
+                    android:background="@color/quantum_vanillaredA100"
+                    android:textColor="#FFFFFF"
+                    android:textAllCaps="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                    android:id="@+id/esperando_pedido"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ProgressBar
+                        android:indeterminateTint="@color/original_color"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"/>
+                    <TextView
+                        android:text="Esperando confirmacion"
+                        style="@style/Titulo4"
+                        android:textColor="@color/original_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ProgressBar
+            android:id="@+id/progressBarEstado"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="false"
+            android:indeterminateTint="@color/original_color"
+            android:progressBackgroundTint="@color/black"
+            android:max="100"
+            android:minHeight="50dp"
+            android:minWidth="200dp"
+            android:progress="20" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

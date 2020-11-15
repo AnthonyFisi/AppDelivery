@@ -2,6 +2,7 @@ package com.example.yego.ViewModel;
 
 import android.app.Application;
 
+import com.example.yego.Login.SessionPrefs;
 import com.example.yego.Repository.Modelo.Gson.GsonPublicidad;
 import com.example.yego.Repository.Repositorio.PublicidadRepository;
 import com.example.yego.Repository.Service.PublicidadService;
@@ -25,7 +26,9 @@ public class PublicidadViewModel extends AndroidViewModel {
     }
 
     public void searchListaPublicidad() {
-        publicidadRepository.searchListaPublicidad();
+        String token= SessionPrefs.get(getApplication()).getTokenPrefs();
+
+        publicidadRepository.searchListaPublicidad(token);
     }
 
     public LiveData<GsonPublicidad> getListaPublicidadLiveData() {

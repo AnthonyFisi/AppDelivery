@@ -4,10 +4,11 @@ import com.example.yego.Repository.Modelo.Gson.GsonPublicidad;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.Path;
 
 public interface PublicidadService {
 
     @GET("/PublicidadController/lista")
-    Call<GsonPublicidad> searchListaPublicidad();
+    Call<GsonPublicidad> searchListaPublicidad(@Header("Authorization")String auth);
 }

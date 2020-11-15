@@ -9,12 +9,16 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.example.yego.R;
 import com.example.yego.Repository.Modelo.Publicidad;
+import com.smarteist.autoimageslider.SliderView;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PublicidadResultsAdapter extends SliderViewAdapter<PublicidadResultsAdapter.PublicidadResultsViewHolder>{
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+public class PublicidadResultsAdapter extends SliderViewAdapter<PublicidadResultsAdapter.PublicidadResultsViewHolder> {
 
     private Context context;
 
@@ -27,6 +31,7 @@ public class PublicidadResultsAdapter extends SliderViewAdapter<PublicidadResult
 
     public void renewItems(List<Publicidad> results) {
         this.results = results;
+        System.out.println("llegamos"+results.size());
         notifyDataSetChanged();
     }
 
@@ -46,6 +51,14 @@ public class PublicidadResultsAdapter extends SliderViewAdapter<PublicidadResult
         return new PublicidadResultsViewHolder(inflate);
     }
 
+  /* @NonNull
+    @Override
+    public PublicidadResultsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_publicidad, null);
+
+        return new PublicidadResultsAdapter.PublicidadResultsViewHolder(inflate);
+    }*/
+
     @Override
     public void onBindViewHolder(PublicidadResultsViewHolder viewHolder, int position) {
         Publicidad publicidad= results.get(position);
@@ -55,12 +68,22 @@ public class PublicidadResultsAdapter extends SliderViewAdapter<PublicidadResult
                 .into(viewHolder.mImageView);
 
     }
-
+/*
+    @Override
+    public int getItemCount() {
+        return results.size();
+    }
+*/
     @Override
     public int getCount() {
         return results.size();
     }
-
+/*
+    @Override
+    public int getCount() {
+        return results.size();
+    }
+*/
 
     public class PublicidadResultsViewHolder extends SliderViewAdapter.ViewHolder {
 

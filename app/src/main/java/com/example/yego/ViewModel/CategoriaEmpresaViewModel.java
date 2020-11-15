@@ -2,6 +2,7 @@ package com.example.yego.ViewModel;
 
 import android.app.Application;
 
+import com.example.yego.Login.SessionPrefs;
 import com.example.yego.Repository.Modelo.Gson.GsonCategoriaEmpresa;
 import com.example.yego.Repository.Repositorio.CategoriaEmpresaRepository;
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -24,8 +25,10 @@ public class CategoriaEmpresaViewModel extends AndroidViewModel {
        gsonCategoriaEMpresaLiveData = categoriaEmpresaRepository.getCategoriaEmpresaLiveData();
     }
 
-    public void searchCategoriaEmpresa(ShimmerFrameLayout mShimmerViewContainer) {
-        categoriaEmpresaRepository.searchCategoriaEmpresa(mShimmerViewContainer);
+    public void searchCategoriaEmpresa() {
+        String token= SessionPrefs.get(getApplication()).getTokenPrefs();
+
+        categoriaEmpresaRepository.searchCategoriaEmpresa(token);
     }
 
     public LiveData<GsonCategoriaEmpresa> getCategoiraEmpresaLiveData() {

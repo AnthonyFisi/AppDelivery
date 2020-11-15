@@ -2,21 +2,35 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".View.DetailSubCategoriaEmpresaUI.FragmentEmpresaSubCategoria">
+    android:layout_height="wrap_content"
+    xmlns:shimmer="http://schemas.android.com/apk/res-auto"
+    tools:context=".View.DetailSubCategoriaEmpresaUI.FragmentEmpresaSubCategoria"
+    android:orientation="vertical">
 
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/Lista_Empresa_total_SubCategoria_RecyclerView"
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_view_container_empresa_total_sub_categoria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        shimmer:duration="800">
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        </androidx.recyclerview.widget.RecyclerView>
+            <include layout="@layout/item_placeholder_icon_ubicacion_cercana" />
+            <include layout="@layout/item_placeholder_icon_ubicacion_cercana" />
+            <include layout="@layout/item_placeholder_icon_ubicacion_cercana" />
+            <include layout="@layout/item_placeholder_icon_ubicacion_cercana" />
 
-    </LinearLayout>
 
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/Lista_Empresa_total_SubCategoria_RecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </FrameLayout>

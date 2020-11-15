@@ -1,13 +1,48 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
     <dimen name="activityPadding">16dp</dimen>
-    <dimen name="placeholderImage">60dp</dimen>
+    <dimen name="placeholderImage">160dp</dimen>
     <dimen name="placeholderTextHeight">8dp</dimen>
     <dimen name="padding_10">10dp</dimen>
+
+    <dimen name="placeholderImage_menu">40dp</dimen>
+    <dimen name="placeholderTextHeight_menu">4dp</dimen>
+
+
+    <dimen name="placeholderImage_ubicacion_cercana_height">150dp</dimen>
+    <dimen name="placeholderImage_ubicacion_cercana_widht">160dp</dimen>
+
+    <dimen name="placeholderTextHeight_ubicacion_cercana_height">20dp</dimen>
+    <dimen name="placeholderTextHeight_ubicacion_cercana_widht">160dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+    <dimen name="image_left_margin_collapsed">16dp</dimen>
+    <dimen name="image_top_margin_collapsed">64dp</dimen>
+    <dimen name="title_left_margin_collapsed">72dp</dimen>
+    <dimen name="title_top_margin_collapsed">64dp</dimen>
+    <dimen name="subtitle_left_margin_collapsed">72dp</dimen>
+    <dimen name="subtitle_top_margin_collapsed">88dp</dimen>
+
+    <dimen name="image_width">110dp</dimen>
+    <dimen name="image_small_width">32dp</dimen>
+
+    <dimen name="default_margin">16dp</dimen>
+    <dimen name="drawable_padding">24dp</dimen>
+    <dimen name="text_size">16sp</dimen>
+    <dimen name="normal_padding">16dp</dimen>
+
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="appbar_padding">16dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+
+    <dimen name="activity_margin">16dp</dimen>
+    <dimen name="vertical_separator">10dp</dimen>
+    <dimen name="dialog_margin">24dp</dimen>
 </resources>

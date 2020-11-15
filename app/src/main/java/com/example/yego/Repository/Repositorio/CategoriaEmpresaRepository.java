@@ -15,8 +15,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.example.yego.Repository.UrlBase.URL_BASE;
+
 public class CategoriaEmpresaRepository {
-    private static final String CATEGORIA_SEARCH_SERVICE_URL_BASE="https://backend-tiend-go.herokuapp.com/";
 
     private CategoriaEmpresaService categoriaEmpresaService;
     private MutableLiveData<GsonCategoriaEmpresa>  gsonCategoriaEmpresaLiveData;
@@ -30,7 +31,7 @@ public class CategoriaEmpresaRepository {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         categoriaEmpresaService = new retrofit2.Retrofit.Builder()
-                .baseUrl(CATEGORIA_SEARCH_SERVICE_URL_BASE)
+                .baseUrl(URL_BASE)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
@@ -38,17 +39,18 @@ public class CategoriaEmpresaRepository {
 
     }
 
-    public void searchCategoriaEmpresa(ShimmerFrameLayout mShimmerViewContainer) {
-        categoriaEmpresaService.searchCategoriaEmpresa()
+    public void searchCategoriaEmpresa(String auth) {
+        categoriaEmpresaService.searchCategoriaEmpresa(auth)
                 .enqueue(new Callback<GsonCategoriaEmpresa>() {
                     @Override
                     public void onResponse(Call<GsonCategoriaEmpresa> call, Response<GsonCategoriaEmpresa> response) {
                         if (response.body() != null) {
+                            System.out.println("ESTOY ACA EN CATEGORIS REPOSITORY");
+
                             gsonCategoriaEmpresaLiveData.setValue(response.body());
                         }
 
-                        mShimmerViewContainer.stopShimmerAnimation();
-                        mShimmerViewContainer.setVisibility(View.GONE);
+
 
                     }
 

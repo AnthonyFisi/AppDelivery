@@ -37,7 +37,6 @@ public class SubCategoriaResultsAdapter extends RecyclerView.Adapter<SubCategori
 
         SubCategoriaEmpresa subCategoriaEmpresa=results.get(position);
 
-        System.out.println(subCategoriaEmpresa.getUrl_imagen_subcategoria()+ "urlllllllllllllllll");
 
         if (subCategoriaEmpresa.getUrl_imagen_subcategoria()!= null) {
             String imageUrl = subCategoriaEmpresa.getUrl_imagen_subcategoria()
@@ -68,6 +67,7 @@ public class SubCategoriaResultsAdapter extends RecyclerView.Adapter<SubCategori
 
         ImageView mImageView;
         TextView mTextView;
+
         OnNoteListener oneNoteListener;
 
         public SubCategoriaResultsHolder(@NonNull View itemView,OnNoteListener oneNoteListener) {

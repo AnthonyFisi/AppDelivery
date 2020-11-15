@@ -4,6 +4,7 @@ import com.example.yego.Repository.Modelo.Gson.GsonCategoriaEmpresa;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 
 public interface CategoriaEmpresaService {
 
@@ -17,5 +18,5 @@ public interface CategoriaEmpresaService {
      */
 
     @GET("categoriaEmpresa/mostrarCategoria")
-    Call<GsonCategoriaEmpresa> searchCategoriaEmpresa();
+    Call<GsonCategoriaEmpresa> searchCategoriaEmpresa(@Header("Authorization")String auth);
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/andika</item>
+        <item>@font/averia_sans_libre</item>
+        <item>@font/bowlby_one</item>
+        <item>@font/candal</item>
+        <item>@font/ubuntu_medium</item>
+    </array>
+</resources>

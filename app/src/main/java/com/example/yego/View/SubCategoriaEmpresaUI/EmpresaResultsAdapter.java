@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -20,12 +21,14 @@ public class EmpresaResultsAdapter extends RecyclerView.Adapter<EmpresaResultsAd
 
     List<Empresa> results= new ArrayList<>();
 
+    private ImageListener imageListener;
+
 
     @NonNull
     @Override
     public EmpresaResultsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ubicacion_cerca,parent,false);
-        return new EmpresaResultsHolder(itemView);
+        return new EmpresaResultsHolder(itemView,imageListener);
     }
 
     @Override
@@ -33,18 +36,28 @@ public class EmpresaResultsAdapter extends RecyclerView.Adapter<EmpresaResultsAd
 
         Empresa empresa=results.get(position);
 
+        if(!empresa.isDisponible()){
+            holder.estado_restaurante.setVisibility(View.VISIBLE);
+        }
+
         if (empresa.getUrlfoto_empresa()!= null) {
             String imageUrl = empresa.getUrlfoto_empresa()
+
                     .replace("http://", "https://");
 
             Glide.with(holder.itemView)
                     .load(imageUrl)
-                    .into(holder.mImageView);
+                    .skipMemoryCache(true)
+                    .into(holder.item_ubicacion_cerca_IMAGEN_RESTAURANTE);
         }
 
-        holder.mTextView.setText(empresa.getNombre_empresa());
-        holder.ubicacion.setText(empresa.getUbicacion_empresa());
-        holder.descripcion.setText(empresa.getDescripcion_empresa());
+        holder.item_ubicacion_cerca_NOMBRE_EMPRESA.setText(empresa.getNombre_empresa());
+      //  holder.descripcion.setText(empresa.getDescripcion_empresa());
+        holder.item_ubicacion_cerca_TIEMPO_APROXIMADO.setText(empresa.getTiempo_aproximado_entrega());
+        String precio="S/."+empresa.getCosto_delivery();
+        holder.item_ubicacion_cerca_PRECIO_DELIVERY.setText(precio);
+
+
 
 
     }
@@ -54,27 +67,39 @@ public class EmpresaResultsAdapter extends RecyclerView.Adapter<EmpresaResultsAd
         return results.size();
     }
 
-    public void setEmpresaAdpater(List<Empresa> results){
+    public void setEmpresaAdpater(List<Empresa> results,ImageListener imageListener){
         this.results=results;
+        this.imageListener=imageListener;
         notifyDataSetChanged();
 
     }
 
-    public  class EmpresaResultsHolder extends RecyclerView.ViewHolder{
+    public  class EmpresaResultsHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        ImageView mImageView;
-        TextView mTextView;
-        TextView ubicacion;
-        TextView descripcion;
-        public EmpresaResultsHolder(@NonNull View itemView) {
+        ImageView item_ubicacion_cerca_IMAGEN_RESTAURANTE;
+        TextView item_ubicacion_cerca_NOMBRE_EMPRESA,item_ubicacion_cerca_TIEMPO_APROXIMADO,item_ubicacion_cerca_PRECIO_DELIVERY;
+        LinearLayout estado_restaurante;
+
+        ImageListener imageListener;
+        public EmpresaResultsHolder(@NonNull View itemView, ImageListener imageListener) {
             super(itemView);
-            mImageView =itemView.findViewById(R.id.imageView_restaurante_ubicacion);
-            mTextView =itemView.findViewById(R.id.textView_nombre_ubicacion);
-            ubicacion =itemView.findViewById(R.id.textView_ubicacion_empresa);
-            descripcion =itemView.findViewById(R.id.textView_descripcion_empresa);
-
-
+            item_ubicacion_cerca_IMAGEN_RESTAURANTE=itemView.findViewById(R.id.item_ubicacion_cerca_IMAGEN_RESTAURANTE);
+            item_ubicacion_cerca_NOMBRE_EMPRESA =itemView.findViewById(R.id.item_ubicacion_cerca_NOMBRE_EMPRESA);
+            item_ubicacion_cerca_TIEMPO_APROXIMADO=itemView.findViewById(R.id.item_ubicacion_cerca_TIEMPO_APROXIMADO);
+            item_ubicacion_cerca_PRECIO_DELIVERY=itemView.findViewById(R.id.item_ubicacion_cerca_PRECIO_DELIVERY);
+            estado_restaurante=itemView.findViewById(R.id.estado_restaurante);
+            this.imageListener=imageListener;
+            item_ubicacion_cerca_IMAGEN_RESTAURANTE.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View view) {
+            imageListener.imageClick(results.get(getAdapterPosition()));
+        }
+    }
+
+    public interface ImageListener{
+        void imageClick(Empresa empresa);
     }
 
 

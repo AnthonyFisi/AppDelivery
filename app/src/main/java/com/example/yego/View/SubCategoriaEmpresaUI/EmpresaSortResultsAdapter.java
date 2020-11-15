@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -18,14 +19,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class EmpresaSortResultsAdapter extends RecyclerView.Adapter<EmpresaSortResultsAdapter.EmpresaSortResultsHolder>{
 
-    List<Empresa> results= new ArrayList<>();
+    private List<Empresa> results= new ArrayList<>();
+    private ImageListener imageListener;
+
+
 
 
     @NonNull
     @Override
     public EmpresaSortResultsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_empresa_sort,parent,false);
-        return new EmpresaSortResultsAdapter.EmpresaSortResultsHolder(itemView);
+        return new EmpresaSortResultsAdapter.EmpresaSortResultsHolder(itemView,imageListener);
     }
 
     @Override
@@ -33,18 +37,30 @@ public class EmpresaSortResultsAdapter extends RecyclerView.Adapter<EmpresaSortR
 
         Empresa empresa=results.get(position);
 
+        if(!empresa.isDisponible()){
+            holder.estado_restaurante.setVisibility(View.VISIBLE);
+        }
+
         if (empresa.getUrlfoto_empresa()!= null) {
             String imageUrl = empresa.getUrlfoto_empresa()
                     .replace("http://", "https://");
 
             Glide.with(holder.itemView)
                     .load(imageUrl)
-                    .into(holder.mImageView);
+                    .skipMemoryCache(true)
+                    .into(holder.item_empresa_sort_IMAGEN);
         }
 
-        holder.mTextView.setText(empresa.getNombre_empresa());
-        holder.ubicacion.setText(empresa.getUbicacion_empresa());
-        holder.descripcion.setText(empresa.getDescripcion_empresa());
+
+        holder.item_empresa_sort_UBICACION.setText(empresa.getDireccion_empresa());
+
+        holder.item_empresa_sort_NOMBRE_EMPRESA.setText(empresa.getNombre_empresa());
+
+        holder.item_empresa_sort_TIEMPO_APROXIMADO.setText(empresa.getTiempo_aproximado_entrega());
+        String precio="S/."+empresa.getCosto_delivery();
+
+        holder.item_empresa_sort_PRECIO_DELIVERY.setText(precio);
+
     }
 
     @Override
@@ -52,26 +68,44 @@ public class EmpresaSortResultsAdapter extends RecyclerView.Adapter<EmpresaSortR
         return results.size();
     }
 
-    public void setEmpresaSortAdpater(List<Empresa> results){
+     public void setEmpresaSortAdpater(List<Empresa> results,ImageListener imageListener){
         this.results=results;
+        this.imageListener=imageListener;
         notifyDataSetChanged();
 
     }
 
-    public class EmpresaSortResultsHolder extends RecyclerView.ViewHolder{
+    public class EmpresaSortResultsHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
 
-        ImageView mImageView;
-        TextView mTextView;
-        TextView ubicacion;
-        TextView descripcion;
+        ImageView item_empresa_sort_IMAGEN;
+        TextView item_empresa_sort_UBICACION,item_empresa_sort_NOMBRE_EMPRESA,item_empresa_sort_TIEMPO_APROXIMADO,item_empresa_sort_PRECIO_DELIVERY;
+        LinearLayout estado_restaurante;
+        ImageListener imageListener;
 
-        public EmpresaSortResultsHolder(@NonNull View itemView) {
+        // TextView descripcion;
+
+        private EmpresaSortResultsHolder(@NonNull View itemView, ImageListener imageListener) {
             super(itemView);
-            mImageView =itemView.findViewById(R.id.imageView_empresa_sort);
-            mTextView =itemView.findViewById(R.id.textView_nombre_sort);
-            ubicacion =itemView.findViewById(R.id.textView_ubicacion_empresa_sort);
-            descripcion =itemView.findViewById(R.id.textView_descripcion_empresa_sort);
+            item_empresa_sort_IMAGEN =itemView.findViewById(R.id.item_empresa_sort_IMAGEN);
+            item_empresa_sort_UBICACION =itemView.findViewById(R.id.item_empresa_sort_UBICACION);
+            item_empresa_sort_NOMBRE_EMPRESA =itemView.findViewById(R.id.item_empresa_sort_NOMBRE_EMPRESA);
+            item_empresa_sort_TIEMPO_APROXIMADO= itemView.findViewById(R.id.item_empresa_sort_TIEMPO_APROXIMADO);
+            item_empresa_sort_PRECIO_DELIVERY=itemView.findViewById(R.id.item_empresa_sort_PRECIO_DELIVERY);
+            estado_restaurante=itemView.findViewById(R.id.estado_restaurante);
+            this.imageListener=imageListener;
+            item_empresa_sort_IMAGEN.setOnClickListener(this);
         }
+
+
+        @Override
+        public void onClick(View view) {
+            imageListener.imageClick(results.get(getAdapterPosition()));
+        }
+    }
+
+
+    public interface ImageListener{
+        void imageClick(Empresa empresa);
     }
 }

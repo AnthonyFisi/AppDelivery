@@ -12,9 +12,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.example.yego.Repository.UrlBase.URL_BASE;
+
 public class PublicidadRepository {
 
-    private static final String PUBLICIDAD_SERVICE_URL_BASE="https://backend-tiend-go.herokuapp.com/";
 
     private PublicidadService publicidadService;
     private MutableLiveData<GsonPublicidad> gsonPublicidadMutableLiveData;
@@ -26,7 +27,7 @@ public class PublicidadRepository {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         publicidadService = new retrofit2.Retrofit.Builder()
-                .baseUrl(PUBLICIDAD_SERVICE_URL_BASE)
+                .baseUrl(URL_BASE)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
@@ -34,8 +35,8 @@ public class PublicidadRepository {
 
     }
 
-    public void searchListaPublicidad(){
-        publicidadService.searchListaPublicidad().enqueue(new Callback<GsonPublicidad>() {
+    public void searchListaPublicidad(String auth){
+        publicidadService.searchListaPublicidad(auth).enqueue(new Callback<GsonPublicidad>() {
             @Override
             public void onResponse(Call<GsonPublicidad> call, Response<GsonPublicidad> response) {
                 if(response.body() !=null){

@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -52,7 +53,10 @@ public class FragmentCategoria extends Fragment implements  CategoriaResultsAdap
         viewModel.getCategoiraEmpresaLiveData().observe(this, new Observer<GsonCategoriaEmpresa>() {
             @Override
             public void onChanged(GsonCategoriaEmpresa gsonCategoriaEmpresa) {
+                mShimmerViewContainer.stopShimmerAnimation();
+                mShimmerViewContainer.setVisibility(View.GONE);
                 if(gsonCategoriaEmpresa !=null){
+                    CategoriaEmpresa.listaFiltro=gsonCategoriaEmpresa.getListaCategoriaEmpresa();
                     adapter.setResults(gsonCategoriaEmpresa.getListaCategoriaEmpresa(),FragmentCategoria.this::onNoteClick);
                 }
             }
@@ -68,11 +72,13 @@ public class FragmentCategoria extends Fragment implements  CategoriaResultsAdap
         View view= inflater.inflate(R.layout.fragment_categoria, container, false);
 
         mShimmerViewContainer = view.findViewById(R.id.shimmer_view_container);
-        viewModel.searchCategoriaEmpresa(mShimmerViewContainer);
-
+        viewModel.searchCategoriaEmpresa();
 
         RecyclerView recyclerView=view.findViewById(R.id.recycler_view_categoria);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),4));
+        //recyclerView.setLayoutManager(new GridLayoutManager(getContext(),4));
+       // recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+
         recyclerView.setAdapter(adapter);
 
 
@@ -97,10 +103,9 @@ public class FragmentCategoria extends Fragment implements  CategoriaResultsAdap
 
     @Override
     public void onNoteClick(CategoriaEmpresa categoriaEmpresa) {
-        Toast.makeText(FragmentCategoria.super.getContext(),"position : "+categoriaEmpresa.getIdCategoriaEmpresa()                      ,Toast.LENGTH_SHORT).show();
-        Intent intent=new Intent(FragmentCategoria.this.getContext(), SubCategoriaEmpresaActivity.class);
-        intent.putExtra(INTENT_NAME_FRAGMENT_CATEGORIA,categoriaEmpresa.getIdCategoriaEmpresa());
-        startActivity(intent);
+
+    //    Intent intent=SubCategoriaEmpresaActivity.newIntentSubCategoriaActivity(getContext(),categoriaEmpresa,);
+      //  startActivity(intent);
 
     }
 }

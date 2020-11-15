@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="wrap_content">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/enable"
+        app:cardCornerRadius="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="vertical" >
+        <LinearLayout
+            android:id="@+id/item_select"
+            android:gravity="start"
+            android:orientation="horizontal"
+            android:background="@drawable/rounded_animation_horario"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/enable_time"
+                    android:src="@drawable/reloj"
+                    android:scaleType="fitXY"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:id="@+id/activity_horario_NOMBRE_ENABLE"
+                android:textSize="24sp"
+                android:textColor="@color/horario"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:gravity="center"
+                android:layout_marginStart="10dp"
+                android:id="@+id/activity_horario_NOMBRE_HORARIO"
+                android:textSize="18sp"
+                android:textColor="@color/horario"
+                android:text="10:00 pm - 12:00 pm"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.yego.Repository.Repositorio;
 
+import com.example.yego.Repository.Modelo.Empresa;
 import com.example.yego.Repository.Modelo.Gson.GsonEmpresa;
 import com.example.yego.Repository.Service.EmpresaService;
 
@@ -12,30 +13,28 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.example.yego.Repository.UrlBase.URL_BASE;
+
 public class EmpresaRepository {
 
-    private static final String EMPRESA_SERVICE_URL_BASE="https://backend-tiend-go.herokuapp.com/";
 
     private EmpresaService  empresaService;
+
     private MutableLiveData<GsonEmpresa> gsonEmpresaMutableLiveData;
-    private MutableLiveData<GsonEmpresa> gsonEmpresaMutableLiveData1;
-    private MutableLiveData<GsonEmpresa> gsonEmpresaMutableLiveData2;
-    private MutableLiveData<GsonEmpresa> gsonEmpresaMutableLiveData3;
+
+    private MutableLiveData<Empresa> mEmpresaMutableLiveData;
 
 
     public EmpresaRepository(){
         gsonEmpresaMutableLiveData= new MutableLiveData<>();
-        gsonEmpresaMutableLiveData1= new MutableLiveData<>();
-        gsonEmpresaMutableLiveData2= new MutableLiveData<>();
-        gsonEmpresaMutableLiveData3= new MutableLiveData<>();
-
+        mEmpresaMutableLiveData=new MutableLiveData<>();
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.level(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         empresaService = new retrofit2.Retrofit.Builder()
-                .baseUrl(EMPRESA_SERVICE_URL_BASE)
+                .baseUrl(URL_BASE)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
@@ -43,12 +42,16 @@ public class EmpresaRepository {
     }
 
 
-    public void searchListafindByLocation( int idCategoria,String Ubicacion){
-        empresaService.searchListafindByLocation(idCategoria,Ubicacion).enqueue(new Callback<GsonEmpresa>() {
+    public void searchListafindByLocation( String token,int idCategoria,String Ubicacion){
+        empresaService.searchListafindByLocation(token,idCategoria,Ubicacion).enqueue(new Callback<GsonEmpresa>() {
             @Override
             public void onResponse(Call<GsonEmpresa> call, Response<GsonEmpresa> response) {
-                gsonEmpresaMutableLiveData.postValue(response.body());
-            }
+                if(response.code()==200 && response.body()!=null){
+                    gsonEmpresaMutableLiveData.postValue(response.body());
+                }else {
+                    gsonEmpresaMutableLiveData.postValue(null);
+
+                }            }
 
             @Override
             public void onFailure(Call<GsonEmpresa> call, Throwable t) {
@@ -64,60 +67,153 @@ public class EmpresaRepository {
 
 
 
-    public void searchListaSortfindBy( int idCategoria){
-        empresaService.searchListaSortfindBy(idCategoria).enqueue(new Callback<GsonEmpresa>() {
+    public void searchListaCategoriaComplementaria(String token, int idCategoria,String ubicacion){
+        empresaService.searchListaCategoriaComplementaria(token,idCategoria,ubicacion).enqueue(new Callback<GsonEmpresa>() {
             @Override
             public void onResponse(Call<GsonEmpresa> call, Response<GsonEmpresa> response) {
-                gsonEmpresaMutableLiveData1.postValue(response.body());
-            }
+                if(response.code()==200 && response.body()!=null){
+                    gsonEmpresaMutableLiveData.postValue(response.body());
+                }else {
+                    gsonEmpresaMutableLiveData.postValue(null);
+
+                }            }
 
             @Override
             public void onFailure(Call<GsonEmpresa> call, Throwable t) {
-                gsonEmpresaMutableLiveData1.postValue(null);
+                gsonEmpresaMutableLiveData.postValue(null);
             }
         });
     }
 
-    public LiveData<GsonEmpresa> getListaSortfindByLiveData(){
-        return gsonEmpresaMutableLiveData1;
-    }
 
 
-    public void searchListafindByLocationSubCategoria( int idSubCategoria,String Ubicacion){
-        empresaService.searchListafindByLocationSubCategoria(idSubCategoria,Ubicacion).enqueue(new Callback<GsonEmpresa>() {
+    public void searchListafindByLocationSubCategoria( String token,int idSubCategoria,String Ubicacion){
+        empresaService.searchListafindByLocationSubCategoria(token,idSubCategoria,Ubicacion).enqueue(new Callback<GsonEmpresa>() {
             @Override
             public void onResponse(Call<GsonEmpresa> call, Response<GsonEmpresa> response) {
-                gsonEmpresaMutableLiveData2.postValue(response.body());
+                if(response.code()==200 && response.body()!=null){
+                    gsonEmpresaMutableLiveData.postValue(response.body());
+                }else {
+                    gsonEmpresaMutableLiveData.postValue(null);
+
+                }
             }
 
             @Override
             public void onFailure(Call<GsonEmpresa> call, Throwable t) {
-                gsonEmpresaMutableLiveData2.postValue(null);
+                gsonEmpresaMutableLiveData.postValue(null);
             }
         });
     }
 
-    public LiveData<GsonEmpresa> getListafindByLocationSubCategoriaLiveData(){
-        return gsonEmpresaMutableLiveData2;
-    }
-
-    public void searchListafindBy( int idSubCategoria){
-        empresaService. searchListafindBy(idSubCategoria).enqueue(new Callback<GsonEmpresa>() {
+    public void searchListaSubcategoriaComplementaria(String token, int idSubCategoria,String ubicacion){
+        empresaService.searchListaSubcategoriaComplementaria(token,idSubCategoria,ubicacion).enqueue(new Callback<GsonEmpresa>() {
             @Override
             public void onResponse(Call<GsonEmpresa> call, Response<GsonEmpresa> response) {
-                gsonEmpresaMutableLiveData3.postValue(response.body());
+                if(response.code()==200 && response.body()!=null){
+                    gsonEmpresaMutableLiveData.postValue(response.body());
+                }else {
+                    gsonEmpresaMutableLiveData.postValue(null);
+
+                }
             }
 
             @Override
             public void onFailure(Call<GsonEmpresa> call, Throwable t) {
-                gsonEmpresaMutableLiveData3.postValue(null);
+                gsonEmpresaMutableLiveData.postValue(null);
+            }
+        });
+
+    }
+
+    public void  searchListaTotalcerca(String token,String ubicacion){
+        empresaService. searchListaTotalcerca(token,ubicacion).enqueue(new Callback<GsonEmpresa>() {
+            @Override
+            public void onResponse(Call<GsonEmpresa> call, Response<GsonEmpresa> response) {
+                if(response.code()==200 && response.body()!=null){
+                    gsonEmpresaMutableLiveData.postValue(response.body());
+                }else {
+                    gsonEmpresaMutableLiveData.postValue(null);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GsonEmpresa> call, Throwable t) {
+                gsonEmpresaMutableLiveData.postValue(null);
+            }
+        });
+
+    }
+
+    public void listaEmpresaFavorita(String token, int idusuario) {
+
+        empresaService.listaEmpresaFavorita(token, idusuario).enqueue(new Callback<GsonEmpresa>() {
+            @Override
+            public void onResponse(Call<GsonEmpresa> call, Response<GsonEmpresa> response) {
+                if(response.code()==200 && response.body()!=null){
+                    gsonEmpresaMutableLiveData.postValue(response.body());
+                }else {
+                    gsonEmpresaMutableLiveData.postValue(null);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GsonEmpresa> call, Throwable t) {
+                gsonEmpresaMutableLiveData.postValue(null);
+
             }
         });
     }
 
-    public LiveData<GsonEmpresa> getListafindByLiveData(){
-        return gsonEmpresaMutableLiveData3;
+    public void filtroEmpresa( String auth, int idcategoriaempresa, int distancia, float preciodelivery,String ubicacion){
+        empresaService.filtroEmpresa(auth, idcategoriaempresa, distancia, preciodelivery, ubicacion).enqueue(new Callback<GsonEmpresa>() {
+            @Override
+            public void onResponse(Call<GsonEmpresa> call, Response<GsonEmpresa> response) {
+                if(response.code()==200 && response.body()!=null){
+                    gsonEmpresaMutableLiveData.postValue(response.body());
+                }else {
+                    gsonEmpresaMutableLiveData.postValue(null);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GsonEmpresa> call, Throwable t) {
+                gsonEmpresaMutableLiveData.postValue(null);
+
+            }
+        });
     }
+
+    /*INICIO DE OTRA LLAMADA*/
+
+    public void getEmpresaById(String token, int idempresa) {
+        empresaService.getEmpresaById(token, idempresa).enqueue(new Callback<Empresa>() {
+            @Override
+            public void onResponse(Call<Empresa> call, Response<Empresa> response) {
+                if(response.code()==200 && response.body()!=null){
+                    mEmpresaMutableLiveData.postValue(response.body());
+                }else {
+                    mEmpresaMutableLiveData.postValue(null);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Empresa> call, Throwable t) {
+                mEmpresaMutableLiveData.postValue(null);
+
+            }
+        });
+    }
+    public LiveData<Empresa> getEmpresaMutableLivedata() {
+        return mEmpresaMutableLiveData;
+    }
+
+
+
 
 
 

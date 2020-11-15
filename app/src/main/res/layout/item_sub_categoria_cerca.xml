@@ -1,20 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="200dp"
-    android:layout_height="200dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginBottom="5dp"
+    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/imageView_sub_categoria_ubicacion"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="150dp">
-    </ImageView>
+        android:layout_height="match_parent"
+        android:elevation="0dp"
+        app:cardCornerRadius="10dp">
 
-    <TextView
-        android:id="@+id/textView_nombre_sub_categoria_ubicacion"
+        <ImageView
+            android:id="@+id/imageView_sub_categoria_ubicacion"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY" />
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="icono"
-        android:layout_marginLeft="10dp"></TextView>
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_animation_horario"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/item_subcategoria_cerca_NOMBRE_EMPRESA"
+                style="@style/Titulo4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="El encanto de la selva peruana"
+                android:textSize="15sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/item_subcategoria_cerca_TIEMPO_APROXIMADO"
+                style="@style/Titulo3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:text="25-30 min"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                android:gravity="end">
+
+                <TextView
+                    android:id="@+id/item_subcategoria_cerca_PRECIO_DELIVERY"
+                    style="@style/Titulo4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="S/. 3.50"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
 
 </LinearLayout>
+
+

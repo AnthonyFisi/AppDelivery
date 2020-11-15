@@ -1,5 +1,5 @@
-<resources>
-    <string name="app_name">Yego</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">YegoO</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -8,17 +8,116 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_tools">Tools</string>
-    <string name="menu_share">Share</string>
-    <string name="menu_send">Send</string>
+    <string name="menu_inicio">Inicio</string>
+    <string name="menu_perfil">Perfil</string>
+    <string name="menu_ubicaciones">Ubicaciones</string>
+    <string name="menu_metodo_pago">Metodos de pago</string>
+    <string name="menu_ganar_dinero">Ganar dinero con YegoO.</string>
+    <string name="menu_socio">Ser socio de YegoO.</string>
+    <string name="menu_soporte">Soporte</string>
+    <string name="menu_cerrar_sesion">Cerrar sesion</string>
+
+
+    <string name="action_share">Share</string>
+    <string name="action_upload">Upload</string>
+    <string name="action_copy">Copy</string>
+    <string name="action_print">Print</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_ubicacion_cerca">Restaurantes cerca a tu ubicacion</string>
+    <string name="title_ubicacion_cerca">Cerca a tu ubicacion</string>
     <string name="title_sort_empresa">Recomendaciones de lo mejor</string>
     <string name="todo">TODO</string>
+    <string name="recomendaciones">Recomendaciones</string>
+
+    <string name="tab_text_1">Inicio</string>
+    <string name="tab_text_2">Productos populares</string>
+    <string name="tab_text_3">Bebidas</string>
+    <string name="title_activity_bottom">BottomActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="tab_text_4">Extras y mas </string>
+    <string name="tab_text_5">Otros</string>
+
+
+    <string-array name="user_type_array">
+        <item>Natural</item>
+        <item>Jurídica</item>
+    </string-array>
+    <string-array name="document_type_array">
+        <item>CC</item>
+        <item>NIT</item>
+        <item>CE</item>
+        <item>TI</item>
+        <item>PP</item>
+        <item>RUT</item>
+    </string-array>
+    <string-array name="document_type_2_array">
+        <item>CC</item>
+        <item>CE</item>
+    </string-array>
+
+
+    <string name="firstname">First Name (*)</string>
+    <string name="mandatory">This field is mandatory</string>
+    <string name="lastname">Last Name</string>
+    <string name="edit">Comentarios</string>
+    <string name="save">Agregar</string>
+    <string name="cancel">Cancelar</string>
+
+    <string name="map_key" translatable="false">AIzaSyD2616cCRnG5qtSjl39FWuZOgJDCqmbtmg</string>
+    <string name="title_activity_maps">Map</string>
+
+
+    <string name="facebook_app_id">328578441886547</string>
+    <string name="fb_login_protocol_scheme">fb328578441886547</string>
+    <string name="fragment_iniciar_sesion_TITULO_PRINCIPAL">Disfruta de los mejores productos</string>
+    <string name="fragment_iniciar_sesion_TITULO_2">Ingresa con tu cuenta favorita</string>
+    <string name="fragment_iniciar_sesion_TITULO_3">¿Aun no estas registrado? Registrarse aqui</string>
+    <string name="footer_titulo">YegoO.</string>
+    <string name="fragment_login_iniciar_sersion">Iniciar Sersion</string>
+    <string name="title_activity_inicio">InicioActivity</string>
+    <string name="todo2">TODO</string>
+
+    <string name="estado_orden_1">Pedido acpetado y preparandose</string>
+    <string name="estado_orden_2">El pedido se encuentra listo</string>
+    <string name="estado_orden_3">Pedido en camino</string>
+    <string name="estado_orden_4">Repartido llego al destino</string>
+    <string name="estado_orden_5">Lo sentimos pedido cancelado</string>
+    <string name="estado_orden_6">Pedido entregado al repartidor</string>
+
+    <string name="otros">Otros</string>
+    <string name="titulo_original">YegoO</string>
+    <string name="descuento_general">Descuento</string>
+    <string name="delivery_general">Delivery</string>
+    <string name="pedido_general">Pedido</string>
+    <string name="total_general">Total</string>
+    <string name="titulo_fragment_orden">Ordenes</string>
+
+
+    <!-- SECTION KEY -->
+
+    <!-- IN THIS SECTION YOU PUT YOURS KEY ,CREATE AN ACCOUNT IN ALGOLIA AND GET YOUR CRDENTIALS-->
+    <string name="algolia_applicationID">APP-ID</string>
+    <string name="algolia_apiKey">API KEY</string>
+    <string name="algolia_indexName">INDEX NAME</string>
+
+
+    <!--CREATE AN ACCOUNT IN GOOGLECLOUD AND ADQUIRE YOUR APIKEY CREDENTIAL -->
+
+    <string name="googlemaps_place_apikey">APIKEY AUTHORIZATION ONLY MOVIL DEVICES</string>
+    <string name="googlemaps_autocomplete_apikey">API KEY AUTHORIZATHION WEB</string>
+
+    <!--CREATE AN ACCOUNT IN PUSHER AND ADQUIRE YOUR APIKEY CREDENTIAL -->
+
+    <string name="pusher_cluster">REGION CLUSTER </string>
+    <string name="pusher_apikey">API KEY</string>
+    <string name="pusher_canal_pedido">CANAL NAME</string>
+    <string name="pusher_canal_delivery">CANAL NAME</string>
+
+    <!--URL BASE BACKEND -->
+    <string name="url_base_api">URL BASE BACKEND</string>
+
 
 </resources>

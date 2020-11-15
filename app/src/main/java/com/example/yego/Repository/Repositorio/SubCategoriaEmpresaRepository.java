@@ -1,7 +1,9 @@
 package com.example.yego.Repository.Repositorio;
 
+
 import com.example.yego.Repository.Modelo.Gson.GsonSubCategoriaEmpresa;
 import com.example.yego.Repository.Service.SubCategoriaEmpresaService;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -12,9 +14,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.example.yego.Repository.UrlBase.URL_BASE;
+
 public class SubCategoriaEmpresaRepository {
 
-    private static final String SUB_CATEGORIA_SEARCH_SERVICE_URL_BASE="https://backend-tiend-go.herokuapp.com/";
 
     private SubCategoriaEmpresaService subCategoriaEmpresaService;
     private MutableLiveData<GsonSubCategoriaEmpresa> gsonSubCategoriaEmpresaLiveData;
@@ -30,24 +33,25 @@ public class SubCategoriaEmpresaRepository {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         subCategoriaEmpresaService = new retrofit2.Retrofit.Builder()
-                .baseUrl(SUB_CATEGORIA_SEARCH_SERVICE_URL_BASE)
+                .baseUrl(URL_BASE)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(SubCategoriaEmpresaService.class);
     }
 
-    public void searchSubCategoriaEmpresa(int idCategoria) {
-        subCategoriaEmpresaService.searchSubCategoriaEmpresa(idCategoria)
+    public void searchSubCategoriaEmpresa(String token,int idCategoria) {
+        subCategoriaEmpresaService.searchSubCategoriaEmpresa(token,idCategoria)
                 .enqueue(new Callback<GsonSubCategoriaEmpresa>() {
                     @Override
                     public void onResponse(Call<GsonSubCategoriaEmpresa> call, Response<GsonSubCategoriaEmpresa> response) {
                         if (response.body() != null) {
                             gsonSubCategoriaEmpresaLiveData.setValue(response.body());
-                        }
+                        }else{
 
-                        //mShimmerViewContainer.stopShimmerAnimation();
-                        //mShimmerViewContainer.setVisibility(View.GONE);
+                            gsonSubCategoriaEmpresaLiveData.setValue(null);
+
+                        }
 
                     }
 
