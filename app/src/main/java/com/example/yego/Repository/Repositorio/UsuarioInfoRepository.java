@@ -3,6 +3,7 @@ package com.example.yego.Repository.Repositorio;
 import com.example.yego.Repository.Modelo.JwtResponse;
 import com.example.yego.Repository.Modelo.UsuarioInfo;
 import com.example.yego.Repository.Service.UsuarioInfoService;
+import com.example.yego.Repository.UrlBase;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -29,7 +30,7 @@ public class UsuarioInfoRepository {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         mUsuarioInfoService = new retrofit2.Retrofit.Builder()
-                .baseUrl(URL_BASE)
+                .baseUrl(UrlBase.URL_BASE)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

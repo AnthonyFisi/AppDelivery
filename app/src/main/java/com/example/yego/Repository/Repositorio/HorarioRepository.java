@@ -4,6 +4,7 @@ import android.view.View;
 
 import com.example.yego.Repository.Modelo.Gson.GsonHorario;
 import com.example.yego.Repository.Service.HorarioService;
+import com.example.yego.Repository.UrlBase;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
 import androidx.lifecycle.LiveData;
@@ -33,7 +34,7 @@ public class HorarioRepository {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         horarioService = new retrofit2.Retrofit.Builder()
-                .baseUrl(URL_BASE)
+                .baseUrl(UrlBase.URL_BASE)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

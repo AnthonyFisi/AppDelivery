@@ -206,7 +206,9 @@ public class DetalleUbicacionBottonSheetFragment extends BottomSheetDialogFragme
                 progress_bar.setVisibility(View.VISIBLE);
                // loadingDialog.startLoadingDialog();
 */
-                button_agregar_ubicacion.setEnabled(false);
+            progress_bar.setVisibility(View.VISIBLE);
+
+            button_agregar_ubicacion.setEnabled(false);
 
 
                 if(route){

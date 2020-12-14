@@ -198,8 +198,8 @@ public class SearchFragment extends Fragment implements ItemSearchResultsAdapter
     public void clickCategoria(Empresa objeto, int position) {
         GsonEmpresa gsonEmpresa=new GsonEmpresa();
         gsonEmpresa.setListaEmpresa(lista);
-        Intent intent= ResultSearchActivity.newIntent(getContext(),gsonEmpresa,objeto.getNombre_empresa());
-        startActivity(intent);
+        //Intent intent= ResultSearchActivity.newIntent(getContext(),gsonEmpresa,objeto.getNombre_empresa(),cate);
+       // startActivity(intent);
         Objects.requireNonNull(getActivity()).finish();
     }
 

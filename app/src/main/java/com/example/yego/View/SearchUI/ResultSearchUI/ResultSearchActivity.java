@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.yego.R;
 import com.example.yego.Repository.Modelo.Empresa;
+import com.example.yego.Repository.Modelo.Gson.GsonCategoriaEmpresa;
 import com.example.yego.Repository.Modelo.Gson.GsonEmpresa;
 import com.example.yego.View.DetailSubCategoriaEmpresaActivity;
 import com.example.yego.View.EmpresaDetailActivity;
@@ -30,6 +31,7 @@ public class ResultSearchActivity extends AppCompatActivity implements EmpresaSo
 
     private static final String GSON_EMPRESA = "categoria_empresa";
     private static final String KEY_WORD ="key_word" ;
+    private static final String GSONCATEGORIA_EMPRESA = "gsoncategoria_empresa";
 
     private GsonEmpresa gsonEmpresa;
 
@@ -40,6 +42,8 @@ public class ResultSearchActivity extends AppCompatActivity implements EmpresaSo
     private Serializable keyword;
 
     private EmpresaSortResultsAdapter adapter;
+
+    private GsonCategoriaEmpresa gsonCategoriaEmpresa;
 
 
 
@@ -83,10 +87,12 @@ public class ResultSearchActivity extends AppCompatActivity implements EmpresaSo
     }
 
 
-    public static Intent newIntent(Context context, GsonEmpresa gsonEmpresa,String keyword){
+    public static Intent newIntent(Context context, GsonEmpresa gsonEmpresa,String keyword, GsonCategoriaEmpresa gsonCategoriaEmpresa){
         Intent intent= new Intent(context, ResultSearchActivity.class);
         intent.putExtra(GSON_EMPRESA,gsonEmpresa);
         intent.putExtra(KEY_WORD,keyword);
+        intent.putExtra(GSONCATEGORIA_EMPRESA,gsonCategoriaEmpresa);
+
         return intent;
     }
 
@@ -96,6 +102,9 @@ public class ResultSearchActivity extends AppCompatActivity implements EmpresaSo
             gsonEmpresa=(GsonEmpresa) getIntent().getSerializableExtra(GSON_EMPRESA);
         }
 
+        if(getIntent().getSerializableExtra(GSONCATEGORIA_EMPRESA)!=null){
+            gsonCategoriaEmpresa=(GsonCategoriaEmpresa) getIntent().getSerializableExtra(GSONCATEGORIA_EMPRESA);
+        }
         keyword=getIntent().getSerializableExtra(KEY_WORD);
 
     }
@@ -121,7 +130,7 @@ public class ResultSearchActivity extends AppCompatActivity implements EmpresaSo
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
 
-                Intent intent= new Intent(ResultSearchActivity.this, SearchActivity.class);
+                Intent intent=SearchActivity.newIntent(ResultSearchActivity.this,gsonCategoriaEmpresa);
                 startActivity(intent);
                 finish();
 

@@ -2,6 +2,7 @@ package com.example.yego.Repository.Repositorio;
 
 import com.example.yego.Repository.Modelo.Gson.GsonPublicidad;
 import com.example.yego.Repository.Service.PublicidadService;
+import com.example.yego.Repository.UrlBase;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -27,7 +28,7 @@ public class PublicidadRepository {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         publicidadService = new retrofit2.Retrofit.Builder()
-                .baseUrl(URL_BASE)
+                .baseUrl(UrlBase.URL_BASE)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

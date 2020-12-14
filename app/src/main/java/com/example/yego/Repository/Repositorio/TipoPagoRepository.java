@@ -3,6 +3,7 @@ package com.example.yego.Repository.Repositorio;
 import com.example.yego.Repository.Modelo.Gson.GsonTipoPago;
 import com.example.yego.Repository.Modelo.TipoPago;
 import com.example.yego.Repository.Service.TipoPagoService;
+import com.example.yego.Repository.UrlBase;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -29,7 +30,7 @@ public class TipoPagoRepository {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
        tipoPagoService = new retrofit2.Retrofit.Builder()
-               .baseUrl(URL_BASE)
+               .baseUrl(UrlBase.URL_BASE)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

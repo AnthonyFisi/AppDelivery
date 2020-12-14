@@ -3,6 +3,7 @@ package com.example.yego.Repository.Repositorio;
 import com.example.yego.Repository.Modelo.Envio_empresa;
 import com.example.yego.Repository.Modelo.Gson.Envio_empresaGson;
 import com.example.yego.Repository.Service.Envio_empresaService;
+import com.example.yego.Repository.UrlBase;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -31,7 +32,7 @@ public class Envio_empresaRepository {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         mEnvio_empresaService = new retrofit2.Retrofit.Builder()
-                .baseUrl(URL_BASE)
+                .baseUrl(UrlBase.URL_BASE)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

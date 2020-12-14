@@ -5,6 +5,7 @@ import android.widget.Toast;
 
 import com.example.yego.Repository.Modelo.MainPedido;
 import com.example.yego.Repository.Service.RegistroPedidoService;
+import com.example.yego.Repository.UrlBase;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -27,7 +28,7 @@ public class RegistroPedidoRepository {
         OkHttpClient client= new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         Retrofit retrofit= new Retrofit.Builder()
-                .baseUrl(URL_BASE)
+                .baseUrl(UrlBase.URL_BASE)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

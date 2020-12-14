@@ -34,14 +34,14 @@
                 android:background="@drawable/ic_action_name_back"
                 android:backgroundTint="@color/titulo" />
 
-           <TextView
+          <!-- <TextView
                android:text="Inicio"
                android:textSize="18sp"
                android:textColor="@color/original_color"
                android:textStyle="bold"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"/>
-
+-->
         </androidx.appcompat.widget.Toolbar>
 
         <TextView
@@ -51,7 +51,7 @@
             android:layout_marginStart="16dp"
             android:text="@string/titulo_fragment_orden"
             style="@style/Titulo4"
-            android:textSize="24sp"/>
+            android:textSize="28sp"/>
 
         <LinearLayout
             android:id="@+id/empty_ordenes"

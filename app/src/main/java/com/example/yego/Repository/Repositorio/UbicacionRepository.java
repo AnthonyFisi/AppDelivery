@@ -4,6 +4,7 @@ import com.example.yego.Login.SessionPrefs;
 import com.example.yego.Repository.Modelo.Gson.GsonUbicacion;
 import com.example.yego.Repository.Modelo.Ubicacion;
 import com.example.yego.Repository.Service.UbicacionService;
+import com.example.yego.Repository.UrlBase;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -40,7 +41,7 @@ public class UbicacionRepository  {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         ubicacionService = new retrofit2.Retrofit.Builder()
-                .baseUrl(URL_BASE)
+                .baseUrl(UrlBase.URL_BASE)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

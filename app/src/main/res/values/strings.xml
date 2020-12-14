@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">YegoO</string>
+    <string name="app_name">Yego</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -96,28 +96,30 @@
     <string name="titulo_fragment_orden">Ordenes</string>
 
 
+
     <!-- SECTION KEY -->
 
     <!-- IN THIS SECTION YOU PUT YOURS KEY ,CREATE AN ACCOUNT IN ALGOLIA AND GET YOUR CRDENTIALS-->
-    <string name="algolia_applicationID">APP-ID</string>
-    <string name="algolia_apiKey">API KEY</string>
-    <string name="algolia_indexName">INDEX NAME</string>
+    <string name="algolia_applicationID"></string>
+    <string name="algolia_apiKey"></string>
+    <string name="algolia_indexName"></string>
 
 
     <!--CREATE AN ACCOUNT IN GOOGLECLOUD AND ADQUIRE YOUR APIKEY CREDENTIAL -->
 
-    <string name="googlemaps_place_apikey">APIKEY AUTHORIZATION ONLY MOVIL DEVICES</string>
-    <string name="googlemaps_autocomplete_apikey">API KEY AUTHORIZATHION WEB</string>
+    <string name="googlemaps_place_apikey"></string>
+    <string name="googlemaps_autocomplete_apikey"></string>
 
     <!--CREATE AN ACCOUNT IN PUSHER AND ADQUIRE YOUR APIKEY CREDENTIAL -->
 
-    <string name="pusher_cluster">REGION CLUSTER </string>
-    <string name="pusher_apikey">API KEY</string>
-    <string name="pusher_canal_pedido">CANAL NAME</string>
-    <string name="pusher_canal_delivery">CANAL NAME</string>
+    <string name="pusher_cluster">us2</string>
+    <string name="pusher_apikey"></string>
+    <string name="pusher_canal_pedido"></string>
+    <string name="pusher_canal_delivery"></string>
 
     <!--URL BASE BACKEND -->
-    <string name="url_base_api">URL BASE BACKEND</string>
+    <string name="url_base_api"></string>
+
 
 
 </resources>

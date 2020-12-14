@@ -4,6 +4,7 @@ package com.example.yego.Repository.Repositorio;
 import com.example.yego.R;
 import com.example.yego.Repository.Modelo.Calificacion_Usuario;
 import com.example.yego.Repository.Service.Calificacion_UsuarioService;
+import com.example.yego.Repository.UrlBase;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -15,7 +16,6 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.example.yego.Repository.UrlBase.URL_BASE;
 
 public class Calificacion_UsuarioRepository {
 
@@ -31,7 +31,7 @@ public class Calificacion_UsuarioRepository {
         OkHttpClient client= new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         Retrofit retrofit= new Retrofit.Builder()
-                .baseUrl(URL_BASE)
+                .baseUrl(UrlBase.URL_BASE)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

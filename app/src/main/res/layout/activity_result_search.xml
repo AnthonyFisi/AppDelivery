@@ -20,6 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.486"
         app:menu="@menu/menu_subcategoria"
+        app:titleTextColor="@color/transparente"
         app:navigationIcon="@drawable/ic_action_name_back" />
 
     <androidx.core.widget.NestedScrollView

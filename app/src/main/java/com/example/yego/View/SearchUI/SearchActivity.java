@@ -182,13 +182,14 @@ public class SearchActivity extends AppCompatActivity implements ItemSearchResul
         searchView.setMaxWidth(Integer.MAX_VALUE);
 
         searchView.setOnSearchClickListener(v->{
-            Toast.makeText(SearchActivity.this,"estamod cerrando",Toast.LENGTH_LONG).show();
+           // Toast.makeText(SearchActivity.this,"estamod cerrando",Toast.LENGTH_LONG).show();
             linearlayout_box.setVisibility(View.GONE);
             ic_back.setVisibility(View.GONE);
         });
 
         searchView.setOnCloseListener(() -> {
-            Toast.makeText(SearchActivity.this,"estamod abriendo",Toast.LENGTH_LONG).show();
+           //
+            // Toast.makeText(SearchActivity.this,"estamod abriendo",Toast.LENGTH_LONG).show();
             linearlayout_box.setVisibility(View.VISIBLE);
 
             ic_back.setVisibility(View.VISIBLE);
@@ -228,7 +229,7 @@ public class SearchActivity extends AppCompatActivity implements ItemSearchResul
     public void clickCategoria(Empresa objeto, int position) {
         GsonEmpresa gsonEmpresa=new GsonEmpresa();
         gsonEmpresa.setListaEmpresa(lista);
-        Intent intent= ResultSearchActivity.newIntent(SearchActivity.this,gsonEmpresa,objeto.getNombre_empresa());
+        Intent intent= ResultSearchActivity.newIntent(SearchActivity.this,gsonEmpresa,objeto.getNombre_empresa(),gsonCategoriaEmpresa);
         startActivity(intent);
         finish();
     }
@@ -398,9 +399,6 @@ public class SearchActivity extends AppCompatActivity implements ItemSearchResul
             int distancia=progressDistancia*1000;
             Intent intent= FiltroResultActivity.newIntent(SearchActivity.this,gsonCategoriaEmpresa,findIdCategoria(),distancia,progressDelivery);
             startActivity(intent);
-            Toast.makeText
-                    (SearchActivity.this,
-                            " envio request DISTANCIA:"+progressDistancia+"/ COSTO DELIVERY"+progressDelivery+"/"+findIdCategoria(),Toast.LENGTH_LONG).show();
 
             finish();
         });
@@ -427,13 +425,13 @@ public class SearchActivity extends AppCompatActivity implements ItemSearchResul
         super.onConfigurationChanged(newConfig);
         // Checks whether a hardware keyboard is available
         if (newConfig.hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_NO) {
-            Toast.makeText(this, "keyboard visible", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this, "keyboard visible", Toast.LENGTH_SHORT).show();
 
         } else if (newConfig.hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_YES) {
             searchView.clearFocus();
             searchView.setIconified(true);
 
-            Toast.makeText(this, "keyboard hidden", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this, "keyboard hidden", Toast.LENGTH_SHORT).show();
         }
     }
 

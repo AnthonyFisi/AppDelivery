@@ -5,6 +5,7 @@ import android.view.View;
 import com.example.yego.Repository.Modelo.Gson.GsonProducto;
 import com.example.yego.Repository.Modelo.Word;
 import com.example.yego.Repository.Service.ProductoService;
+import com.example.yego.Repository.UrlBase;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
 import androidx.lifecycle.LiveData;
@@ -31,7 +32,7 @@ public class ProductoRepository {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         productoService = new retrofit2.Retrofit.Builder()
-                .baseUrl(URL_BASE)
+                .baseUrl(UrlBase.URL_BASE)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

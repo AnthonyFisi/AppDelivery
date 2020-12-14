@@ -104,7 +104,7 @@ public class ConfirmarEntregaFragment extends Fragment {
 
         }
 
-        responseCalificacion();
+        //responseCalificacion();
 
         initWidgets(view);
 
@@ -244,6 +244,9 @@ public class ConfirmarEntregaFragment extends Fragment {
 
             sendCalificacion(puntaje_usuario,puntaje_servicio);
 
+            deleteFragment();
+
+
         });
 
         inicio.setOnClickListener( v->{
@@ -254,21 +257,6 @@ public class ConfirmarEntregaFragment extends Fragment {
         });
     }
 
-    private void responseCalificacion(){
-        viewModel_Servicio.getCalificacion_servicioLiveData().observe(this, new Observer<Calificacion_Servicio>() {
-            @Override
-            public void onChanged(Calificacion_Servicio calificacion_servicio) {
-                if(calificacion_servicio!=null){
-
-                    //getActivity().getSupportFragmentManager().beginTransaction().remove(getParentFragment()).commit();
-
-                    deleteFragment();
-                }else {
-                    Toast.makeText(getContext(), "Volver a intentarlo porfavor ,problemas en nuestro servicio", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }
 
 
     private void sendCalificacion(float rating_delivery,float rating_servicio){

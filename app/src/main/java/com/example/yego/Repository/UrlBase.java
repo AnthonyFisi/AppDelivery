@@ -4,7 +4,7 @@ import com.example.yego.R;
 
 public class UrlBase {
 
-    public  static final String URL_BASE=String.valueOf(R.string.url_base_api);
+    public  static final String URL_BASE= "https://backend-tiend-go.herokuapp.com/";
 
 }
 

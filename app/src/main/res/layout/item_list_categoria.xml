@@ -22,13 +22,13 @@
             android:layout_marginEnd="4dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
+<!--
             <ImageView
                 android:backgroundTint="@color/titulo"
                 android:background="@drawable/check2"
                 android:layout_width="12dp"
                 android:layout_height="12dp"/>
-
+-->
             <TextView
                 android:id="@+id/nuevo_cate"
                 android:text="Categoria 1"

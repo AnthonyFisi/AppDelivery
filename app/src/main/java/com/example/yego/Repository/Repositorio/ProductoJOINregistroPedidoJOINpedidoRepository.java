@@ -4,6 +4,7 @@ import android.view.View;
 
 import com.example.yego.Repository.Modelo.Gson.GsonProductoJOINregistroPedidoJOINpedido;
 import com.example.yego.Repository.Service.ProductoJOINregistroPedidoJOINpedidoService;
+import com.example.yego.Repository.UrlBase;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
 import androidx.lifecycle.LiveData;
@@ -31,7 +32,7 @@ public class ProductoJOINregistroPedidoJOINpedidoRepository {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         productoJOINregistroPedidoJOINpedidoService = new retrofit2.Retrofit.Builder()
-                .baseUrl(URL_BASE)
+                .baseUrl(UrlBase.URL_BASE)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

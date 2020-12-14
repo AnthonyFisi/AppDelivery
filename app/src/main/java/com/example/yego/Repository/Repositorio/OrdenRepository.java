@@ -3,6 +3,7 @@ package com.example.yego.Repository.Repositorio;
 import com.example.yego.Repository.Modelo.Gson.GsonOrden;
 import com.example.yego.Repository.Modelo.Gson.OrdenGeneralGson;
 import com.example.yego.Repository.Service.OrdenService;
+import com.example.yego.Repository.UrlBase;
 import com.google.gson.Gson;
 
 import androidx.lifecycle.LiveData;
@@ -31,7 +32,7 @@ public class OrdenRepository {
         OkHttpClient client= new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         Retrofit retrofit= new Retrofit.Builder()
-                .baseUrl(URL_BASE)
+                .baseUrl(UrlBase.URL_BASE)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

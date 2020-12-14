@@ -432,11 +432,10 @@
                         style="@style/Titulo1_Carrito"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="10dp"
                         android:text="Ubicacion"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:textSize="20sp" />
 
                 </LinearLayout>
 
@@ -1073,16 +1072,17 @@
     <Button
         android:id="@+id/fragment_detalle_orden_PEDIDO_RECIBIDO"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="4dp"
         android:background="@drawable/border_button_general"
         android:text="Pedido recibido"
         android:textAllCaps="false"
-        android:visibility="gone"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

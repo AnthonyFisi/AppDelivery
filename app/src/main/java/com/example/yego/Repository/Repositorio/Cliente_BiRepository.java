@@ -3,6 +3,7 @@ package com.example.yego.Repository.Repositorio;
 import com.example.yego.R;
 import com.example.yego.Repository.Modelo.Cliente_Bi;
 import com.example.yego.Repository.Service.Cliente_BiService;
+import com.example.yego.Repository.UrlBase;
 
 import androidx.lifecycle.MutableLiveData;
 import okhttp3.OkHttpClient;
@@ -12,7 +13,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.example.yego.Repository.UrlBase.URL_BASE;
 
 public class Cliente_BiRepository {
 
@@ -29,7 +29,7 @@ public class Cliente_BiRepository {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         mCliente_biService = new retrofit2.Retrofit.Builder()
-                .baseUrl(URL_BASE)
+                .baseUrl(UrlBase.URL_BASE)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

@@ -107,7 +107,7 @@
 
 
 
-                <androidx.cardview.widget.CardView
+              <!--  <androidx.cardview.widget.CardView
                     app:cardBackgroundColor="#7fFFFFFF"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="0dp"
@@ -121,7 +121,7 @@
                         android:layout_height="15dp"/>
                 </androidx.cardview.widget.CardView>
 
-
+-->
             </LinearLayout>
 
             <LinearLayout

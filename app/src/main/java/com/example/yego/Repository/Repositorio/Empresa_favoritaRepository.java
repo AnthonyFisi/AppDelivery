@@ -5,6 +5,7 @@ import com.example.yego.Repository.Modelo.Empresa_favorita;
 import com.example.yego.Repository.Modelo.Empresa_favorito_usuario;
 import com.example.yego.Repository.Modelo.Gson.Empresa_favoritaGson;
 import com.example.yego.Repository.Service.Empresa_favoritaService;
+import com.example.yego.Repository.UrlBase;
 
 import androidx.lifecycle.MutableLiveData;
 import okhttp3.OkHttpClient;
@@ -32,7 +33,7 @@ public class Empresa_favoritaRepository {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         mEmpresa_favoritaService = new retrofit2.Retrofit.Builder()
-                .baseUrl(URL_BASE)
+                .baseUrl(UrlBase.URL_BASE)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

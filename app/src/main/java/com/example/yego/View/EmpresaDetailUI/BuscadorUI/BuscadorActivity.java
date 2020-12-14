@@ -242,6 +242,9 @@ public class BuscadorActivity extends AppCompatActivity implements ProductoResul
                 mProgressBar.setVisibility(View.GONE);
 
                 if (gsonProducto != null) {
+                    recyclerview_resultado.setVisibility(View.VISIBLE);
+                    linearlayout_filtro.setVisibility(View.GONE);
+
                     adapter.deleteData();
                     String cantidad = gsonProducto.getListaProducto().size() + " productos relacionados";
                     activity_resultado_CANTIDAD_RELACIONADO.setText(cantidad);
@@ -253,6 +256,7 @@ public class BuscadorActivity extends AppCompatActivity implements ProductoResul
                     recyclerview_resultado.setAdapter(adapter);
                 } else {
 
+                    recyclerview_resultado.setVisibility(View.GONE);
                     linearlayout_filtro.setVisibility(View.VISIBLE);
 
                 }
@@ -447,5 +451,10 @@ public class BuscadorActivity extends AppCompatActivity implements ProductoResul
     }
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        enableCarrito();
+    }
 }
 

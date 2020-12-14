@@ -35,7 +35,7 @@ public class ListaTypesPayResultsAdapter extends RecyclerView.Adapter<ListaTypes
 
         TipoPago tipoPago=results.get(position);
         System.out.println("estoy item"+tipoPago.getTipopago_nombre());
-        holder.item_type_pay_NOMBRE_PAGO.setText(tipoPago.getTipopago_nombre());
+        //holder.item_type_pay_NOMBRE_PAGO.setText(tipoPago.getTipopago_nombre());
         String imageUrl = tipoPago.getTipopago_url()
                 .replace("http://", "https://");
         Glide.with(holder.itemView)
@@ -62,11 +62,11 @@ public class ListaTypesPayResultsAdapter extends RecyclerView.Adapter<ListaTypes
 
         ClickTipoPago mClickTipoPago;
         ImageView item_type_pay_ICON;
-        TextView item_type_pay_NOMBRE_PAGO;
+      //  TextView item_type_pay_NOMBRE_PAGO;
 
         public ListaTypesPayResultsHolder(@NonNull View itemView,ClickTipoPago clickTipoPago) {
             super(itemView);
-            item_type_pay_NOMBRE_PAGO=itemView.findViewById(R.id.item_type_pay_NOMBRE_PAGO);
+       //     item_type_pay_NOMBRE_PAGO=itemView.findViewById(R.id.item_type_pay_NOMBRE_PAGO);
             item_type_pay_ICON=itemView.findViewById(R.id.item_type_pay_ICON);
             this.mClickTipoPago=clickTipoPago;
 
